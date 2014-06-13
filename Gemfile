@@ -77,8 +77,8 @@ group :development, :test do
   gem 'spring'
 
   # Auto-generate API documents
-  # gem 'grape-swagger'
-  # gem 'grape-swagger-ui'
+  gem 'grape-swagger'
+  gem 'grape-swagger-ui'
 
   # Improve error analytics
   gem 'better_errors'
