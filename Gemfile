@@ -26,10 +26,9 @@ gem 'slim-rails'
 gem 'compass-rails'
 gem 'jquery-rails'
 gem 'ceaser-easing'
-gem 'font-awesome-rails'
 
-# Turbolinks
-gem 'turbolinks'
+gem 'font-awesome-rails'
+gem 'rails-assets-nouislider', '6.0.0'
 
 # Authentication
 gem 'devise'
@@ -48,6 +47,14 @@ gem 'kaminari'
 # I18n
 gem 'rails-i18n', '~> 4.0.0'
 gem 'i18n_generators'
+
+# Ajax
+gem 'turbolinks'
+gem 'jquery-turbolinks'
+gem 'nprogress-rails'
+
+# Monitoring
+gem 'newrelic_rpm'
 
 # Admin
 #gem 'activeadmin', github: 'gregbell/active_admin'
@@ -75,6 +82,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'accept_values_for'
   gem 'spring'
+  gem 'spring-commands-rspec'
 
   # Auto-generate API documents
   gem 'grape-swagger'

@@ -162,6 +162,9 @@ GEM
     jquery-rails (3.1.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-turbolinks (2.0.2)
+      railties (>= 3.1.0)
+      turbolinks
     json (1.8.1)
     kaminari (0.16.1)
       actionpack (>= 3.0.0)
@@ -192,8 +195,10 @@ GEM
     mysql (2.9.1)
     net-http-digest_auth (1.4)
     net-http-persistent (2.9.4)
+    newrelic_rpm (3.8.1.221)
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
+    nprogress-rails (0.1.3.0)
     ntlm-http (0.1.1)
     oauth (0.4.7)
     oj (2.9.5)
@@ -231,6 +236,9 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.1.1)
       sprockets-rails (~> 2.0)
+    rails-assets-jquery (2.1.1)
+    rails-assets-nouislider (6.0.0)
+      rails-assets-jquery (>= 1.7.0)
     rails-i18n (4.0.2)
       i18n (~> 0.6)
       rails (>= 4.0)
@@ -282,6 +290,8 @@ GEM
       railties (>= 3.0, < 4.2)
       slim (~> 2.0)
     spring (1.1.3)
+    spring-commands-rspec (1.0.2)
+      spring (>= 0.9.1)
     sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -352,9 +362,12 @@ DEPENDENCIES
   grape-swagger-ui
   i18n_generators
   jquery-rails
+  jquery-turbolinks
   kaminari
   letter_opener
   mysql
+  newrelic_rpm
+  nprogress-rails
   oj
   omniauth
   omniauth-twitter
@@ -362,12 +375,14 @@ DEPENDENCIES
   quiet_assets
   rabl
   rails (= 4.1.1)
+  rails-assets-nouislider (= 6.0.0)
   rails-i18n (~> 4.0.0)
   rspec-rails
   sass-rails (~> 4.0.3)
   settingslogic
   slim-rails
   spring
+  spring-commands-rspec
   sqlite3
   therubyracer
   turbolinks

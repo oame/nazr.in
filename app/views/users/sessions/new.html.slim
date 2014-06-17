@@ -1,0 +1,13 @@
+h2 Sign in
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  .input-group
+    = f.email_field :email, autofocus: true, placeholder: User.human_attribute_name(:email)
+  .input-group
+    = f.password_field :password, autocomplete: "off", placeholder: User.human_attribute_name(:password)
+  - if devise_mapping.rememberable?
+    .input-group
+      = f.check_box :remember_me
+      = f.label :remember_me
+  div
+    = f.submit "Sign in"
+= render "users/shared/links"

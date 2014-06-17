@@ -1,0 +1,23 @@
+section.promo
+  a href="/"
+    = image_tag 'logo_doodle1.png', class: :logo
+  = form_for @link, action: :create, remote: :true, :html => { class: :shorten_form, "data-type" => :json} do |f|
+    .input-group
+      .address-field
+        = f.text_field :address, class: 'text-field'
+        = f.button class: 'submit-button' do
+          i.fa.fa-angle-right
+
+  .group-large
+    ul.horizontal
+      li = link_to static_pages_about_url(subdomain: 'docs') do
+        i.fa.fa-question-circle
+        | &nbsp;nazr.inとはなんですか？
+      - if user_signed_in?
+        li = link_to destroy_user_session_path, method: :delete do
+          i.fa.fa-sign-out
+          | &nbsp;ログアウト
+      - else
+        li = link_to new_user_session_path do
+          i.fa.fa-sign-in
+          | &nbsp;ログイン

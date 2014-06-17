@@ -1,0 +1,129 @@
+@import "compass";
+
+// Font
+$ff-gothic: Verdana, "游ゴシック", YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+$ff-mincho: "Times New Roman", "游明朝", YuMincho, "Hiragino Mincho ProN", Meiryo, serif;
+$ff-monospace: Osaka-mono, "MS Gothic", monospace;
+$ff-marugothic: "Hiragino Maru Gothic ProN", Meiryo, fantasy;
+$ff-gothic-full: Verdana, "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+$ff-mincho-full: "Times New Roman", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "メイリオ", Meiryo, serif;
+$ff-monospace-full: "Osaka－等幅", Osaka-mono, "ＭＳ ゴシック", "MS Gothic", monospace;
+$ff-marugothic-full: "ヒラギノ丸ゴ ProN W4", "Hiragino Maru Gothic ProN", "メイリオ", Meiryo, fantasy;
+$ff-gothic-full-android: Verdana, Roboto, "Droid Sans", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+
+// Colors
+@mixin font-colors($color) {
+  color: $color;
+  a { @include link-colors($color); }
+}
+
+// Ellipsis
+@mixin ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// Keyframe Animation
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes $animation-name {
+    @content;
+  }
+  @-moz-keyframes $animation-name {
+    @content;
+  }
+  @-ms-keyframes $animation-name {
+    @content;
+  }
+  @-o-keyframes $animation-name {
+    @content;
+  }
+  @keyframes $animation-name {
+    @content;
+  }
+}
+
+// Background Image
+$image-path: '../img' !default;
+$fallback-extension: 'png' !default;
+$retina-suffix: '@2x';
+@mixin background-image($name, $size:false){
+  background-image: url(#{$image-path}/#{$name}.svg);
+  @if($size){
+    background-size: $size;
+  }
+  .no-svg &{
+    background-image: url(#{$image-path}/#{$name}.#{$fallback-extension});
+
+    @media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+      background-image: url(#{$image-path}/#{$name}#{$retina-suffix}.#{$fallback-extension});
+    }
+  }
+}
+
+// Breakpoints
+$small:  "only screen and (max-width:480px)";
+$middle: "only screen and (max-width:959px)";
+$large:  "only screen and (min-width:960px)";
+@mixin bp-large {
+  @media only screen and (max-width: 960px) {
+    @content;
+  }
+}
+
+@mixin bp-medium {
+  @media only screen and (max-width: 730px) {
+    @content;
+  }
+}
+
+@mixin bp-small {
+  @media only screen and (max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin bp-tiny {
+  @media only screen and (max-width: 340px) {
+    @content;
+  }
+}
+
+// Image fallback
+@mixin omit-image {
+  width: 100%;
+  height: auto;
+  background-image: none;
+
+  .invisible {
+    visibility: visible;
+  }
+}
+
+// Link fallback
+@mixin omit-link {
+  text-decoration: none;
+}
+
+// Retina Image
+$retina: "(min--moz-device-pixel-ratio: 1.3),(-o-min-device-pixel-ratio: 2.6/2),(-webkit-min-device-pixel-ratio: 1.3),(min-device-pixel-ratio: 1.3),(min-resolution: 1.3dppx)";
+@mixin retina($image, $ext:png) {
+  background: generated-image-url($image + '.' + $ext) no-repeat;
+
+  @media #{$retina} {
+    background-image: generated-image-url($image + '@2x' + '.' + $ext);
+    background-size: image-width("#{$image}.#{$ext}") image-height("#{$image}.#{$ext}");
+  }
+}
+
+@mixin fixed-size($image, $ext:png){
+  width: image-width("#{$image}.#{$ext}");
+  height: image-height("#{$image}.#{$ext}");
+}
+
+@mixin box-center($image) {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  margin: -#{image-height($image)/2} 0 0 -#{image-width($image)/2};
+}
