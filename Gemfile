@@ -59,6 +59,8 @@ gem 'newrelic_rpm'
 # Admin
 #gem 'activeadmin', github: 'gregbell/active_admin'
 
+gem 'action_args'
+
 
 group :production do
   gem 'mysql'
@@ -91,6 +93,11 @@ group :development, :test do
   # Improve error analytics
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'pry-rails'
+  gem 'hirb'
+  gem 'hirb-unicode'
+  gem 'awesome_print'
+  gem 'tapp'
 
   # Detect vulnerability
   gem 'brakeman', require: false
