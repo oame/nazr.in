@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20140614064543) do
 
-  create_table "authentications", force: true do |t|
+  create_table "authentications", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "uid"
     t.string   "provider"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20140614064543) do
 
   add_index "authentications", ["user_id"], name: "index_authentications_on_user_id"
 
-  create_table "links", force: true do |t|
+  create_table "links", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "address",                null: false
     t.string   "token"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20140614064543) do
 
   add_index "links", ["user_id"], name: "index_links_on_user_id"
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
