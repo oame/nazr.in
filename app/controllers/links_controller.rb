@@ -4,8 +4,6 @@ class LinksController < ApplicationController
 
   skip_before_filter :verify_authenticity_token, only: :create
 
-  permits :address
-
   # GET /links
   def index
     @links = Link.all

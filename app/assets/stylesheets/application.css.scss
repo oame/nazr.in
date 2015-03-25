@@ -18,21 +18,6 @@ $bg_color: #f7f7f7;
 $high_color: #f7ee5e;
 $thin_color: #dbdbdb;
 
-%clearfix {
-  *zoom: 1;
-
-  &:before {
-    content: " ";
-    display: table;
-  }
-
-  &:after {
-    content: " ";
-    display: table;
-    clear: both;
-  }
-}
-
 *, *:before, *:after {
   @include box-sizing(border-box);
 }

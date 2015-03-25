@@ -11,6 +11,22 @@ $ff-monospace-full: "Osaka－等幅", Osaka-mono, "ＭＳ ゴシック", "MS Got
 $ff-marugothic-full: "ヒラギノ丸ゴ ProN W4", "Hiragino Maru Gothic ProN", "メイリオ", Meiryo, fantasy;
 $ff-gothic-full-android: Verdana, Roboto, "Droid Sans", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
 
+
+%clearfix {
+  *zoom: 1;
+
+  &:before {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    content: " ";
+    display: table;
+    clear: both;
+  }
+}
+
 // Colors
 @mixin font-colors($color) {
   color: $color;
