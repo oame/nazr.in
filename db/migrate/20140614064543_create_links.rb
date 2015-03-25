@@ -4,12 +4,11 @@ class CreateLinks < ActiveRecord::Migration
       t.references :user, index: true
 
       t.string :address, null: false
-      t.string :token
+      t.string :token, null: false
       t.integer :view_count, default: 0
-      t.datetime :expired_at, default: nil
-      t.datetime :deleted_at
+      t.datetime :expired_at
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

@@ -1,8 +1,6 @@
 class Link < ActiveRecord::Base
   include Tokenable
 
-  acts_as_paranoid
-
   belongs_to :user
 
   def view!
