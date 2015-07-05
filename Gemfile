@@ -1,13 +1,12 @@
 source 'https://rubygems.org'
 
-ruby '2.2.1'
+ruby '2.2.2'
 
-gem 'rails', '4.2.1'
-gem 'rabl'
-gem 'oj'
-gem 'grape'
-gem 'grape-rabl'
-gem 'settingslogic'
+gem 'rails', '4.2.3'
+gem 'rails-api'
+gem 'active_model_serializers'
+gem 'devise'
+
 gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
@@ -17,25 +16,24 @@ gem 'jquery-rails'
 gem 'ceaser-easing'
 gem 'font-awesome-rails'
 
-gem 'devise'
-gem 'omniauth'
-gem 'omniauth-twitter'
-gem 'cancancan'
-gem 'paranoia'
-gem 'rails-i18n'
-gem 'i18n_generators'
-gem 'newrelic_rpm'
+# gem 'paranoia'
+# gem 'rails-i18n'
+# gem 'i18n_generators'
+# gem 'newrelic_rpm'
 
 group :development, :test do
   gem 'sqlite3'
   gem 'quiet_assets'
+  gem 'spring'
+  gem 'web-console'
+  gem 'byebug'
+
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'faker'
-  gem 'spring'
 
-  gem 'pry-rails'
-  gem 'pry-byebug'
+  # gem 'pry-rails'
+  # gem 'pry-byebug'
 end
 
 group :production do

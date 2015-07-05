@@ -6,9 +6,7 @@ class CreateLinks < ActiveRecord::Migration
       t.string :address, null: false
       t.string :token, null: false
       t.integer :view_count, default: 0
-      t.datetime :expired_at
-
-      t.timestamps null: false
+      t.timestamps
     end
   end
 end

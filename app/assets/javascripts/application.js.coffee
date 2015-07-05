@@ -3,4 +3,3 @@
 #= require components/flash_message
 
 #= require_self
-#= require links

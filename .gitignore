@@ -19,3 +19,6 @@
 
 # OS X
 .DS_Store
+
+# Frontend
+/frontend/node_modules
