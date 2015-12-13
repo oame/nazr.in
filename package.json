@@ -1,0 +1,38 @@
+{
+  "name": "nazrin",
+  "version": "3.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "babel-core": "^6.3.17",
+    "base62": "^1.1.0",
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "falcor": "^0.1.14",
+    "falcor-express": "^0.1.2",
+    "falcor-http-datasource": "^0.1.2",
+    "falcor-ioredis": "^0.2.2",
+    "falcor-router": "^0.2.12",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3"
+  },
+  "devDependencies": {
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "webpack": "^1.12.9"
+  },
+  "scripts": {
+    "start": "node bootstrap.js",
+    "watch": "webpack -w",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/oame/nazrin.git"
+  },
+  "keywords": [],
+  "author": "oame <oame@oameya.com> (http://oameya.com/)",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/oame/nazrin#readme"
+}
