@@ -1,9 +1,8 @@
 source 'https://rubygems.org'
+ruby '2.3.0'
 
-ruby '2.2.4'
-
-gem 'rails', '5.0.0.beta1'
-#gem 'active_model_serializers'
+gem 'rails', '4.2.5'
+# gem 'active_model_serializers'
 gem 'devise'
 
 gem 'sass-rails'
