@@ -9,6 +9,7 @@ import FalcorRouter from 'falcor-router';
 // import urlService from './url_service';
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 var data = {
   links: []
@@ -81,6 +82,6 @@ app.get('/*', function (req, res) {
   if (!linkFound) res.redirect('/');
 });
 
-app.listen(3000, () => {
-  console.log('http://localhost:3000');
+app.listen(port, () => {
+  console.log('http://localhost:' + port);
 });
