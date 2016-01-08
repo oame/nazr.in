@@ -18,7 +18,6 @@ const LinksRouter = FalcorRouter.createClass([
   {
     route: 'links["url", "hash"]',
     get: (pathSet) => {
-      console.log("==> 🔍  pathSet:", pathSet)
       return pathSet[1].map(function(key) {
         return {
           path: ["links", key],
@@ -40,7 +39,6 @@ const LinksRouter = FalcorRouter.createClass([
   {
     route: 'links.push',
     call: (callPath, args) => {
-      console.log(callPath, args);
       const hash = Base62.encode(data.links.length);
       const url = args;
 

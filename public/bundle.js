@@ -80,18 +80,13 @@
 	  }
 	
 	  _createClass(LinkManager, [{
-	    key: 'handleLinkAdded',
-	    value: function handleLinkAdded(e) {
-	      console.log(e);
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
 	        null,
 	        _react2.default.createElement('img', { src: 'image/nazrin_logo.png', className: 'logo' }),
-	        _react2.default.createElement(_linkAdder2.default, { onAdded: this.handleLinkAdded.bind(this) })
+	        _react2.default.createElement(_linkAdder2.default, null)
 	      );
 	    }
 	  }]);
@@ -19736,17 +19731,14 @@
 	  _createClass(LinkAdder, [{
 	    key: 'handleSubmit',
 	    value: function handleSubmit(event) {
-	      var _this2 = this;
-	
 	      event.preventDefault();
 	
 	      var input = this.refs.input;
 	
 	      _model2.default.call(['links', 'push'], input.value).then(function (e) {
-	        console.log(e);
-	        input.value = null;
+	        var nazrinURL = 'http://nazr.in/' + e.json.links[e.json.links.length - 1].hash;
+	        input.value = nazrinURL;
 	        input.focus();
-	        _this2.props.onAdded();
 	      });
 	    }
 	  }, {
@@ -19768,9 +19760,7 @@
 	  return LinkAdder;
 	}(_react2.default.Component);
 	
-	LinkAdder.propTypes = {
-	  onAdded: _react2.default.PropTypes.func.isRequired
-	};
+	LinkAdder.propTypes = {};
 	exports.default = LinkAdder;
 
 /***/ },

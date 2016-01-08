@@ -2,9 +2,7 @@ import React from 'react';
 import model from './model';
 
 class LinkAdder extends React.Component {
-  static propTypes = {
-    onAdded: React.PropTypes.func.isRequired
-  };
+  static propTypes = {};
 
   handleSubmit(event) {
     event.preventDefault();
@@ -14,12 +12,12 @@ class LinkAdder extends React.Component {
     model
       .call(
         ['links', 'push'],
-        input.value)
+        input.value
+      )
       .then((e) => {
-        console.log(e);
-        input.value = null;
+        var nazrinURL = 'http://nazr.in/' + e.json.links[e.json.links.length-1].hash;
+        input.value = nazrinURL;
         input.focus();
-        this.props.onAdded();
       });
   }
 
