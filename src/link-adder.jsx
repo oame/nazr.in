@@ -1,36 +1,35 @@
-import React from 'react'
-import model from './model.js'
+import React from 'react';
+import model from './model';
 
 class LinkAdder extends React.Component {
-  propTypes = {
+  static propTypes = {
     onAdded: React.PropTypes.func.isRequired
   };
 
   handleSubmit(event) {
     event.preventDefault();
 
-    var input = this.refs.input;
+    const input = this.refs.input;
 
-    console.log(model);
-
-    model.
-      setValue(['links',
-        input.value,
-        "url"])
-      .then(() => {
-        input.value = null
-        input.focus()
-        this.props.onAdded()
+    model
+      .call(
+        ['links', 'push'],
+        input.value)
+      .then((e) => {
+        console.log(e);
+        input.value = null;
+        input.focus();
+        this.props.onAdded();
       });
   }
 
   render() {
-    return (
+    return(
       <form onSubmit={::this.handleSubmit}>
-        <input ref="input"/>
-        <button>add name</button>
+        <input ref="input" />
+        <button>Shorten</button>
       </form>
-    )
+    );
   }
 }
 

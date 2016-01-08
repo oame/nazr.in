@@ -60,10 +60,6 @@
 	
 	var _linkAdder2 = _interopRequireDefault(_linkAdder);
 	
-	var _linksList = __webpack_require__(320);
-	
-	var _linksList2 = _interopRequireDefault(_linksList);
-	
 	var _model = __webpack_require__(160);
 	
 	var _model2 = _interopRequireDefault(_model);
@@ -86,16 +82,9 @@
 	  }
 	
 	  _createClass(LinkManager, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      _model2.default.get('urls').then(function (data) {
-	        console.log(data);
-	      });
-	    }
-	  }, {
 	    key: 'handleLinkAdded',
-	    value: function handleLinkAdded() {
-	      this.refs.linksList.update();
+	    value: function handleLinkAdded(e) {
+	      console.log(e);
 	    }
 	  }, {
 	    key: 'render',
@@ -103,8 +92,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_linkAdder2.default, { onAdded: this.handleLinkAdded.bind(this) }),
-	        _react2.default.createElement(_linksList2.default, { ref: 'linksList' })
+	        _react2.default.createElement(_linkAdder2.default, { onAdded: this.handleLinkAdded.bind(this) })
 	      );
 	    }
 	  }]);
@@ -19741,19 +19729,9 @@
 	  _inherits(LinkAdder, _React$Component);
 	
 	  function LinkAdder() {
-	    var _Object$getPrototypeO;
-	
-	    var _temp, _this, _ret;
-	
 	    _classCallCheck(this, LinkAdder);
 	
-	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	      args[_key] = arguments[_key];
-	    }
-	
-	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(LinkAdder)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.propTypes = {
-	      onAdded: _react2.default.PropTypes.func.isRequired
-	    }, _temp), _possibleConstructorReturn(_this, _ret);
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(LinkAdder).apply(this, arguments));
 	  }
 	
 	  _createClass(LinkAdder, [{
@@ -19765,9 +19743,8 @@
 	
 	      var input = this.refs.input;
 	
-	      console.log(_model2.default);
-	
-	      _model2.default.setValue(['links', input.value, "url"]).then(function () {
+	      _model2.default.call(['links', 'push'], input.value).then(function (e) {
+	        console.log(e);
 	        input.value = null;
 	        input.focus();
 	        _this2.props.onAdded();
@@ -19783,7 +19760,7 @@
 	        _react2.default.createElement(
 	          'button',
 	          null,
-	          'add name'
+	          'Shorten'
 	        )
 	      );
 	    }
@@ -19792,6 +19769,9 @@
 	  return LinkAdder;
 	}(_react2.default.Component);
 	
+	LinkAdder.propTypes = {
+	  onAdded: _react2.default.PropTypes.func.isRequired
+	};
 	exports.default = LinkAdder;
 
 /***/ },
@@ -19814,11 +19794,9 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var model = new _falcor2.default.Model({
+	exports.default = new _falcor2.default.Model({
 	  source: new _falcorHttpDatasource2.default('/model.json')
 	});
-	
-	exports.default = model;
 
 /***/ },
 /* 161 */
@@ -46195,89 +46173,6 @@
 	  return data;
 	};
 
-
-/***/ },
-/* 320 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _model = __webpack_require__(160);
-	
-	var _model2 = _interopRequireDefault(_model);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var LinksList = function (_React$Component) {
-	  _inherits(LinksList, _React$Component);
-	
-	  function LinksList() {
-	    _classCallCheck(this, LinksList);
-	
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(LinksList).call(this));
-	
-	    _this.state = { links: {} };
-	    return _this;
-	  }
-	
-	  _createClass(LinksList, [{
-	    key: 'componentWillMount',
-	    value: function componentWillMount() {
-	      this.update();
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _this2 = this;
-	
-	      var links = Object.keys(this.state.links).map(function (idx) {
-	        return _react2.default.createElement(
-	          'li',
-	          { key: idx },
-	          _this2.state.links[idx].url,
-	          ' http://nazr.in/',
-	          _this2.state.links[idx].hash
-	        );
-	      });
-	      return _react2.default.createElement(
-	        'ul',
-	        null,
-	        links
-	      );
-	    }
-	  }, {
-	    key: 'update',
-	    value: function update() {
-	      var _this3 = this;
-	
-	      _model2.default.getValue(['links', 'length']).then(function (length) {
-	        return _model2.default.get(['links', { from: 0, to: length - 1 }, ['url', 'hash']]);
-	      }).then(function (response) {
-	        return _this3.setState({ links: response.json.links });
-	      });
-	    }
-	  }]);
-	
-	  return LinksList;
-	}(_react2.default.Component);
-	
-	exports.default = LinksList;
 
 /***/ }
 /******/ ]);

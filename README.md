@@ -1,5 +1,9 @@
 # nazr.in
 
+## Stacks
+
+- Node.js + Express + Falcor + React
+
 ## Build
 
 ```
