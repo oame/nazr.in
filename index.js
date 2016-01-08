@@ -67,9 +67,7 @@ const LinksRouter = FalcorRouter.createClass([
   }
 ]);
 
-app.use(bodyParser.urlencoded({
-  extended: false
-}))
+app.use(bodyParser.urlencoded({extended: false}));
 app.use('/model.json', FalcorServer.dataSourceRoute(() => new LinksRouter()));
 app.use(express.static('public'));
 

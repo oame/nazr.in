@@ -26,7 +26,7 @@ class LinkAdder extends React.Component {
   render() {
     return(
       <form onSubmit={::this.handleSubmit}>
-        <input ref="input" />
+        <input ref="input" placeholder="Type your URL" />
         <button>Shorten</button>
       </form>
     );

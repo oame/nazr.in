@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import LinkAdder from './link-adder.jsx';
-import model from './model';
+import './style.css';
 
 class LinkManager extends React.Component {
   handleLinkAdded(e) {
@@ -11,6 +11,7 @@ class LinkManager extends React.Component {
   render() {
     return(
       <div>
+        <img src="image/nazrin_logo.png" className="logo" />
         <LinkAdder onAdded={::this.handleLinkAdded}/>
       </div>
     );
