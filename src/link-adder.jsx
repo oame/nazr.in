@@ -2,6 +2,10 @@ import React from 'react'
 import model from './model.js'
 
 class LinkAdder extends React.Component {
+  propTypes = {
+    onAdded: React.PropTypes.func.isRequired
+  };
+
   handleSubmit(event) {
     event.preventDefault();
 
@@ -22,16 +26,12 @@ class LinkAdder extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit.bind(this)}>
+      <form onSubmit={::this.handleSubmit}>
         <input ref="input"/>
         <button>add name</button>
       </form>
     )
   }
-}
-
-LinkAdder.propTypes = {
-  onAdded: React.PropTypes.func.isRequired
 }
 
 export default LinkAdder

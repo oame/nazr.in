@@ -1,17 +1,17 @@
-import Falcor from 'falcor';
-import FalcorServer from 'falcor-express';
-import bodyParser from 'body-parser';
 import express from 'express';
+import FalcorExpress from 'falcor-express';
 import Router from 'falcor-router';
-import Redis from 'falcor-ioredis';
-import Base62 from 'base62';
 
-var app = express();
+// import Promise from 'promise';
+import urlService from './url_service';
+// import bodyParser from 'body-parser';
+
+
 var data = {
   links: []
 };
 
-var NamesRouter = Router.createClass([{
+var LinksRouter = Router.createClass([{
   route: 'links["url", "hash"]',
   get: (pathSet) => {
     return pathSet[1].map(function(key) {
@@ -55,10 +55,10 @@ var NamesRouter = Router.createClass([{
   }
 }]);
 
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
-app.use('/model.json', FalcorServer.dataSourceRoute(() => new NamesRouter()));
+var app = express();
+
+app.use('/model.json', FalcorExpress.dataSourceRoute(() => new LinksRouter()));
+
 app.get('/*', function (req, res, next) {
   data.links.forEach(link =>{
     if (link['hash'] === req.params[0]) {
@@ -67,11 +67,9 @@ app.get('/*', function (req, res, next) {
   });
   next();
 });
+
 app.use(express.static('public'));
-app.listen(9090, err => {
-  if (err) {
-    console.error(err);
-    return;
-  }
-  console.log('navigate to http://localhost:9090');
+
+app.listen(3000, () => {
+  console.log('http://localhost:3000');
 });

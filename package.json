@@ -1,38 +1,29 @@
 {
   "name": "nazrin",
-  "version": "3.0.0",
-  "description": "",
-  "main": "server.js",
+  "version": "3.0.0-pre",
   "dependencies": {
     "babel-core": "^6.3.17",
+    "babel-preset-stage-0": "^6.3.13",
     "base62": "^1.1.0",
-    "bcrypt-nodejs": "0.0.3",
-    "body-parser": "^1.14.1",
-    "connect-flash": "^0.1.1",
-    "cookie-parser": "^1.4.0",
-    "debug": "^2.2.0",
     "express": "^4.13.3",
-    "express-session": "^1.12.1",
-    "falcor": "^0.1.14",
+    "falcor": "^0.1.15",
     "falcor-express": "^0.1.2",
+    "falcor-hapi": "0.0.2",
     "falcor-http-datasource": "^0.1.2",
-    "falcor-ioredis": "^0.2.2",
     "falcor-router": "^0.2.12",
-    "mongoose": "^4.3.1",
+    "hapi": "^12.0.1",
     "morgan": "^1.6.1",
-    "passport": "^0.3.2",
-    "passport-local": "^1.0.0",
-    "react": "^0.14.3",
-    "react-dom": "^0.14.3"
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6"
   },
   "devDependencies": {
-    "babel-loader": "^6.2.0",
+    "babel-cli": "^6.4.0",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
-    "webpack": "^1.12.9"
+    "webpack": "^1.12.10"
   },
   "scripts": {
-    "start": "node bootstrap.js",
+    "start": "babel-node index.js",
     "watch": "webpack -w",
     "build": "webpack"
   },

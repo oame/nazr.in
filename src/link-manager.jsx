@@ -2,8 +2,15 @@ import React from 'react'
 import ReactDom from 'react-dom'
 import LinkAdder from './link-adder.jsx'
 import LinksList from './links-list.jsx'
+import model from './model'
 
 class LinkManager extends React.Component {
+  componentDidMount() {
+    model.get('urls').then((data) => {
+      console.log(data);
+    });
+  }
+
   handleLinkAdded() {
     this.refs.linksList.update()
   }
@@ -11,7 +18,7 @@ class LinkManager extends React.Component {
   render () {
     return(
       <div>
-        <LinkAdder onAdded={this.handleLinkAdded.bind(this)}/>
+        <LinkAdder onAdded={::this.handleLinkAdded}/>
         <LinksList ref="linksList"/>
       </div>
     )
@@ -19,4 +26,5 @@ class LinkManager extends React.Component {
 }
 
 ReactDom.render(
-  <LinkManager/>, document.querySelector('#root'))
+  <LinkManager/>, document.querySelector('#root')
+)
