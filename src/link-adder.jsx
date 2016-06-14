@@ -9,22 +9,19 @@ class LinkAdder extends React.Component {
 
     const input = this.refs.input;
 
-    model
-      .call(
-        ['links', 'push'],
-        input.value
-      )
-      .then((e) => {
-        var nazrinURL = 'http://nazr.in/' + e.json.links[e.json.links.length-1].hash;
-        input.value = nazrinURL;
-        input.focus();
-      });
+    model.call([
+      'links', 'push'
+    ], input.value).then((e) => {
+      var nazrinURL = 'http://nazr.in/' + e.json.links[e.json.links.length - 1].hash;
+      input.value = nazrinURL;
+      input.focus();
+    });
   }
 
   render() {
-    return(
-      <form onSubmit={::this.handleSubmit}>
-        <input ref="input" placeholder="Type your URL" />
+    return (
+      <form onSubmit={:: this.handleSubmit}>
+        <input ref="input" placeholder="Type your URL"/>
         <button>Shorten</button>
       </form>
     );
