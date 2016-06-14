@@ -33,6 +33,7 @@ const LinksRouter = Router.createClass([{
     }
   }
 }, {
+  // Shorten links
   route: 'links.push',
   call: (callPath, args) => {
     const hash = Base62.encode(data.links.length);
@@ -56,9 +57,10 @@ const LinksRouter = Router.createClass([{
   }
 }]);
 
-// app.use(bodyParser.urlencoded({
-//   extended: false
-// }));
+app.use(morgan('combined'));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use('/model.json', falcorExpress.dataSourceRoute(() => new LinksRouter()));
 app.use(express.static(__dirname + '/public'));
 
