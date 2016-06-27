@@ -1,11 +1,7 @@
-# Ignore all logfiles and tempfiles.
 *.log
 /log/*
 !/log/.keep
 /tmp
-
-# OS X
-.DS_Store
-
-/tool
-node_modules
+/node_modules
+bundle.js
+*.map

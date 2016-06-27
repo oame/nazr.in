@@ -5,15 +5,14 @@ import './style.css';
 
 class LinkManager extends React.Component {
   render() {
-    return(
+    return (
       <div>
-        <img src="image/nazrin_logo.png" className="logo" />
-        <LinkAdder />
+        <img src="image/nazrin_logo.png" className="logo"/>
+        <LinkAdder/>
       </div>
     );
   }
 }
 
 ReactDom.render(
-  <LinkManager/>, document.querySelector('#root')
-);
+  <LinkManager/>, document.querySelector('#root'));
