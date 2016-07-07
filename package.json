@@ -30,6 +30,9 @@
   "devDependencies": {
     "npm-run-all": "^2.3.0"
   },
+  "engines": {
+    "node": "6.2.x"
+  },
   "author": "oame <oame@oameya.com> (http://oameya.com/)",
   "license": "MIT",
   "homepage": "https://bitbucket.org/oame/nazrin"
