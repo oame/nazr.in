@@ -22,6 +22,10 @@ export default class ShortLinkForm extends React.Component {
       .send({url: url})
       .set('Accept', 'application/json')
       .end((err, res) => {
+        if (err) {
+          console.error(err)
+          return
+        }
         let shortenedURL = `http://nazr.in/${res.body.base62}`
         this.setState({value: shortenedURL})
       })

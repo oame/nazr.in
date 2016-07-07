@@ -17,6 +17,7 @@
     "babel-preset-stage-0": "^6.3.13",
     "base62": "^1.1.0",
     "body-parser": "^1.15.2",
+    "corser": "^2.0.0",
     "express": "^4.14.0",
     "express-subdomain": "^1.0.5",
     "mongoose": "^4.5.3",
