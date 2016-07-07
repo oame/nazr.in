@@ -23,12 +23,14 @@ app.use(express.static(__dirname + '/public'))
 // API routes
 const APIRouter = require('./app/routes/api')
 app.use(subdomain('api', APIRouter))
+// app.use('/api', APIRouter)
 
 // Global routes
 app.get('/*', function(req, res) {
   ShortLink.findOne({base62: req.params[0]}, (err, shortLink) => {
-    if (err || !shortLink.url) {
+    if (err || shortLink === null) {
       res.redirect('/')
+      return
     }
     res.redirect(shortLink.url)
   })

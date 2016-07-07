@@ -15,6 +15,7 @@ APIRouter.route('/short_links')
       shortLink.save((err) => {
         if (err){
           res.send(err)
+          return
         }
 
         res.json(shortLink)
@@ -28,6 +29,7 @@ APIRouter.route('/short_links/:base62')
     ShortLink.findOne({base62: req.params.base62}, (err, shortLink) => {
       if (err) {
         res.send(err)
+        return
       }
       res.json(shortLink)
     })
