@@ -1,5 +1,6 @@
 const {Router} = require('express')
 const Base62 = require('base62')
+const validUrl = require('valid-url')
 
 var ShortLink = require('../models/short_link')
 var APIRouter = Router()
@@ -8,13 +9,19 @@ var APIRouter = Router()
 APIRouter.route('/short_links')
   .post((req, res) => {
     ShortLink.nextCount((err, nextCount) => {
+      let url = req.body.url
+      if (!validUrl.isUri(url)){
+        res.json({error: "Invalid URL provided"})
+        return
+      }
+
       let shortLink = new ShortLink()
-      shortLink.url = req.body.url
+      shortLink.url = url
       shortLink.base62 = Base62.encode(nextCount)
 
       shortLink.save((err) => {
         if (err){
-          res.send(err)
+          res.json({error: err})
           return
         }
 
