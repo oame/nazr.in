@@ -2,12 +2,14 @@
 
 ## Stacks
 
-- Node.js + Express + Falcor + React
+- Node.js
+- Express
+- MongoDB
+- React
 
 ## Build
 
 ```
 $ npm install
-$ npm run build
 $ npm start
 ```

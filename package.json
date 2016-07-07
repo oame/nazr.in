@@ -1,6 +1,6 @@
 {
   "name": "nazrin",
-  "version": "3.0.0-pre",
+  "version": "3.0.0",
   "private": true,
   "scripts": {
     "postinstall": "webpack --progress --colors",
@@ -37,5 +37,5 @@
   },
   "author": "oame <oame@oameya.com> (http://oameya.com/)",
   "license": "MIT",
-  "homepage": "https://bitbucket.org/oame/nazrin"
+  "homepage": "http://nazr.in"
 }
