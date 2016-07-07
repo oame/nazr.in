@@ -43,7 +43,7 @@ export default class ShortLinkForm extends React.Component {
           <i className="material-icons">web</i>
           <input
             className="short-link-form__input"
-            placeholder="http://www16.big.or.jp/~zun/"
+            placeholder="http://"
             value={this.state.value}
             onChange={this.handleChange} />
         </div>
