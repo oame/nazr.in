@@ -17,6 +17,10 @@ export default class ShortLinkForm extends React.Component {
     event.preventDefault()
     const url = this.state.value
 
+    if (!url) {
+      return
+    }
+
     request
       .post('http://api.nazr.in/short_links')
       .send({url: url})
@@ -33,13 +37,15 @@ export default class ShortLinkForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="short-link-form" onSubmit={this.handleSubmit}>
         <input
-          ref="input"
-          placeholder="Type your URL"
+          className="short-link-form__input"
+          placeholder="URLをここへ"
           value={this.state.value}
           onChange={this.handleChange} />
-        <button>Shorten</button>
+        <button
+          type="submit"
+          className="short-link-form__submit">短くする</button>
       </form>
     )
   }

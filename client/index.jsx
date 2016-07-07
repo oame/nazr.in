@@ -1,3 +1,4 @@
+import './stylus/index.styl'
 import React from 'react';
 import {render} from 'react-dom';
 

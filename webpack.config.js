@@ -8,10 +8,14 @@ module.exports = {
       test: /\.jsx?$/,
       loader: 'babel',
       exclude: /node_modules/
+    },
+    {
+      test: /\.styl$/,
+      loader: 'style!css!stylus'
     }]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js', '.jsx', '.styl'],
   },
   devtool: 'source-map'
 }

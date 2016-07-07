@@ -6,8 +6,18 @@ export default class Root extends React.Component {
   render() {
     return (
       <div>
-        <img src="image/nazrin_logo.png" className="logo"/>
-        <ShortLinkForm/>
+        <header>
+          <ul>
+            <li><a href="https://github.com/oame/nazr.in">GitHub</a></li>
+            <li><a href="http://www16.big.or.jp/~zun/">上海アリス幻樂団</a></li>
+            <li><a href="https://twitter.com/o_ame">@o_ame</a></li>
+            <li><a href="https://twitter.com/kahasina9">@kahasina9 (Logo)</a></li>
+          </ul>
+        </header>
+        <div className="main">
+          <img src="img/logo_doodle@2x.png" className="logo"/>
+          <ShortLinkForm/>
+        </div>
       </div>
     )
   }
