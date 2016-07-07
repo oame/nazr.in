@@ -1,10 +1,10 @@
 # nazr.in
 
-[nazr.in](http://nazr.in) is a open-source url shortener service.
+[nazr.in](http://nazr.in) is an open-source url shortener service.
 
-## Stacks
+## Stack
 
-[MERN](http://mern.io) stacks.
+[MERN](http://mern.io) stack.
 
 ## Build
 
@@ -15,9 +15,9 @@ $ npm start
 
 ## APIs
 
-> This is ongoing project and the APIs might be revised. Better check README frequently.
+> This is ongoing project thus the APIs might be revised. Better check README consistently.
 
-__api.nazr.in__ is an endpoint of API service.
+__api.nazr.in__ is the endpoint of API services.
 
 ### POST /short_links
 
