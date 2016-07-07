@@ -2,10 +2,12 @@
   width: 650px;
   height: auto;
 }
+
 #root {
   padding: 30px;
   text-align: center;
 }
+
 input {
   border: 0;
   width: 100%;
@@ -13,6 +15,7 @@ input {
   padding: 12px;
   background-color: #EFEFEF;
 }
+
 button {
   border: 0;
   background-color: #A29E96;
