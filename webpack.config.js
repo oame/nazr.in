@@ -1,5 +1,5 @@
 module.exports = {
-  entry: './src/link-manager.jsx',
+  entry: './client',
   output: {
     filename: './public/bundle.js'
   },
@@ -8,10 +8,10 @@ module.exports = {
       test: /\.jsx?$/,
       loader: 'babel',
       exclude: /node_modules/
-    }, {
-      test: /\.css$/,
-      loader: 'style!css'
-    }]
+    }
+  },
+  resolve: {
+    extensions: ['', '.js', '.jsx'],
   },
   devtool: 'source-map'
 }
