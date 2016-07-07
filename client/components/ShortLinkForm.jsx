@@ -18,7 +18,7 @@ export default class ShortLinkForm extends React.Component {
     const url = this.state.value
 
     request
-      .post('/api/short_links')
+      .post('http://api.nazr.in/short_links')
       .send({url: url})
       .set('Accept', 'application/json')
       .end((err, res) => {
