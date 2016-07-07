@@ -1,15 +1,11 @@
 @import "~normalize.css/normalize.css"
-
-font_color = #5d5d5d
-bg_color = #f7f7f7
-high_color = #f0b233
-thin_color = #dbdbdb
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons")
 
 body
   font-size: 13px
   font-family: sans-serif
-  background: bg_color
-  color: font_color
+  background: #fff
+  color: #5d5d5d
 
 a
   text-decoration: none
@@ -43,31 +39,42 @@ header
     width: 80%
 
 .short-link-form
-  padding: 30px 0
+  margin: 30px 0
   width: 100%
   height: 90px
   display: flex
   flex-flow: row nowrap
-  justify-content: center
+  align-items: stretch
+  background-color: #EFEFEF
 
-  @media screen and (max-width: 800px)
-    flex-flow: column nowrap
-
-  .short-link-form__input
+  .short-link-form__input-container
     flex-grow: 1
-    border: 0
-    font-size: 15pt
-    padding: 0 20px
-    background-color: #EFEFEF
-    outline: none
+    display: flex
+    justify-content: center
+    align-items: center
+
+    .material-icons
+      margin-left: 25px
+      font-size: 40px
+      color: #9c9c9c
+
+    .short-link-form__input
+      flex-grow: 1
+      border: 0
+      font-size: 20pt
+      padding: 0 15px
+      outline: none
+      background-color: transparent
 
   .short-link-form__submit
     border: 0
-    background-color: high_color
-    color: #fff
-    padding: 10px 30px
-    font-size: 12pt
+    background-color: #f0b233
+    padding: 10px 32px
     cursor: pointer
+
+    .material-icons
+      font-size: 33px
+      color: #fff
 
     &:hover
       background-color: #73706a
