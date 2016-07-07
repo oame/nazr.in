@@ -27,7 +27,7 @@ app.use(subdomain('api', APIRouter))
 // Global routes
 app.get('/*', function(req, res) {
   ShortLink.findOne({base62: req.params[0]}, (err, shortLink) => {
-    if (err || !shortLink) {
+    if (err || !shortLink.url) {
       res.redirect('/')
     }
     res.redirect(shortLink.url)
