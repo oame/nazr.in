@@ -6,7 +6,7 @@ const mongoose = require('mongoose')
 const autoIncrement = require('mongoose-auto-increment')
 
 const port = process.env.PORT || 3000
-const databaseURL = process.env.DATABASE_URL || 'mongodb://localhost/nazrin'
+const databaseURL = process.env.MONGODB_URI || 'mongodb://localhost/nazrin'
 
 var connection = mongoose.connect(databaseURL)
 autoIncrement.initialize(connection)
