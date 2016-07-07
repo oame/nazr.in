@@ -18,11 +18,8 @@ const app = express()
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
-
 app.use(morgan('combined'))
-
 app.use(corser.create())
-
 app.use(express.static(__dirname + '/public'))
 
 // API routes

@@ -16,20 +16,21 @@ export default class ShortLinkForm extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault()
     const url = this.state.value
-
     if (!url || url.indexOf('http://nazr.in') > -1) {
       return
     }
 
     request
       .post('http://api.nazr.in/short_links')
+      // .post('/api/short_links')
       .send({url: url})
       .set('Accept', 'application/json')
       .end((err, res) => {
         if (err) {
-          console.error(err)
+          console.error(res.body, res.error)
           return
         }
+        console.log(res.body)
         let shortenedURL = `http://nazr.in/${res.body.base62}`
         this.setState({value: shortenedURL})
       })

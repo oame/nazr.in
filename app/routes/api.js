@@ -11,7 +11,11 @@ APIRouter.route('/short_links')
     ShortLink.nextCount((err, nextCount) => {
       let url = req.body.url
       if (!validUrl.isUri(url)){
-        res.json({error: "Invalid URL provided"})
+        res.status(500)
+        res.render('error', {
+          message: "Invalid URL provided",
+          error: err
+        })
         return
       }
 
@@ -21,7 +25,11 @@ APIRouter.route('/short_links')
 
       shortLink.save((err) => {
         if (err){
-          res.json({error: err})
+          res.status(500)
+          res.render('error', {
+            message: "Cannot create the link",
+            error: err
+          })
           return
         }
 
@@ -35,7 +43,11 @@ APIRouter.route('/short_links/:base62')
   .get((req, res) => {
     ShortLink.findOne({base62: req.params.base62}, (err, shortLink) => {
       if (err) {
-        res.send(err)
+        res.status(500)
+        res.render('error', {
+          message: "Cannot retrieve links",
+          error: err
+        })
         return
       }
       res.json(shortLink)
