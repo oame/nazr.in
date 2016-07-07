@@ -8,7 +8,7 @@
     "watch": "npm-run-all -p watch:*",
     "watch:server": "node server.js",
     "watch:webpack": "webpack -w",
-    "build": "webpack"
+    "release": "webpack"
   },
   "dependencies": {
     "babel-loader": "^6.2.1",
