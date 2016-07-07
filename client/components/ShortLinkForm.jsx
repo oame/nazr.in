@@ -17,7 +17,7 @@ export default class ShortLinkForm extends React.Component {
     event.preventDefault()
     const url = this.state.value
 
-    if (!url) {
+    if (!url || url.indexOf('http://nazr.in') > -1) {
       return
     }
 
