@@ -2,8 +2,8 @@ import './stylus/index.styl'
 import React from 'react'
 import {render} from 'react-dom'
 
-import Root from './components/root'
+import App from './components/app'
 
 render(
-	<Root/>, document.getElementById('root')
+	<App/>, document.getElementById('root')
 )

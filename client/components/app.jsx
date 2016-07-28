@@ -2,7 +2,7 @@ import React from 'react'
 
 import ShortLinkForm from './short-link-form'
 
-export default class Root extends React.Component {
+export default class App extends React.Component {
 	render() {
 		const links = [
 			{title: 'GitHub', url: 'https://github.com/oame/nazr.in'},
