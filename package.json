@@ -9,14 +9,14 @@
     "node": "6.2.x"
   },
   "scripts": {
+    "postinstall": "webpack --progress",
     "test": "xo",
-    "start": "run-p -sl watch:*",
-    "watch:server": "node server.js",
-    "watch:webpack": "webpack -w",
+    "start": "npm run server",
+    "watch": "run-p -sl server webpack",
+    "server": "node server.js",
+    "webpack": "webpack -w",
     "build": "webpack",
-    "prerelease": "run-s test build",
-    "release": "echo GO",
-    "postinstall": "webpack --progress"
+    "release": "run-s test build"
   },
   "dependencies": {
     "babel-loader": "^6.2.1",
