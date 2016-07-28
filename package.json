@@ -2,13 +2,21 @@
   "name": "nazrin",
   "version": "3.0.0",
   "private": true,
+  "author": "oame <oame@oameya.com> (http://oameya.com/)",
+  "license": "MIT",
+  "homepage": "http://nazr.in",
+  "engines": {
+    "node": "6.2.x"
+  },
   "scripts": {
-    "postinstall": "webpack --progress --colors",
-    "start": "node server.js",
-    "watch": "npm-run-all -p watch:*",
+    "test": "xo",
+    "start": "run-p -sl watch:*",
     "watch:server": "node server.js",
     "watch:webpack": "webpack -w",
-    "release": "webpack"
+    "build": "webpack",
+    "prerelease": "run-s test build",
+    "release": "echo GO",
+    "postinstall": "webpack --progress"
   },
   "dependencies": {
     "babel-loader": "^6.2.1",
@@ -21,26 +29,32 @@
     "css-loader": "^0.23.1",
     "express": "^4.14.0",
     "express-subdomain": "^1.0.5",
-    "mongoose": "^4.5.3",
+    "mongoose": "^4.5.7",
     "mongoose-auto-increment": "^5.0.1",
     "morgan": "^1.6.1",
     "normalize.css": "^4.2.0",
-    "react": "^15.2.0",
-    "react-dom": "^15.2.0",
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1",
     "style-loader": "^0.13.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.1.1",
-    "superagent": "^2.0.0",
+    "superagent": "^2.1.0",
     "valid-url": "^1.0.9",
     "webpack": "^1.12.10"
   },
   "devDependencies": {
-    "npm-run-all": "^2.3.0"
+    "eslint-config-xo-react": "^0.8.0",
+    "eslint-plugin-react": "^5.2.2",
+    "npm-run-all": "^2.3.0",
+    "xo": "^0.16.0"
   },
-  "engines": {
-    "node": "6.2.x"
-  },
-  "author": "oame <oame@oameya.com> (http://oameya.com/)",
-  "license": "MIT",
-  "homepage": "http://nazr.in"
+  "xo": {
+    "esnext": true,
+    "semicolon": false,
+    "envs": [
+      "node",
+      "browser"
+    ],
+    "extends": "xo-react"
+  }
 }
