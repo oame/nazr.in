@@ -15,7 +15,7 @@ export default class App extends React.Component {
 				<header>
 					<ul>
 						{links.map((link, index) => {
-							return (<li key={index}><a href="{link.url}">{link.title}</a></li>)
+							return (<li key={index}><a href={link.url}>{link.title}</a></li>)
 						})}
 					</ul>
 				</header>
