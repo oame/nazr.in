@@ -4,13 +4,11 @@ const corser = require('corser')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const mongoose = require('mongoose')
-const autoIncrement = require('mongoose-auto-increment')
 
 // Setup database
 const port = process.env.PORT || 3000
 const databaseURL = process.env.MONGODB_URI || 'mongodb://localhost/nazrin'
 const connection = mongoose.connect(databaseURL)
-autoIncrement.initialize(connection)
 
 const ShortLink = require('./models/short-link')
 const APIRouter = require('./routes/api')

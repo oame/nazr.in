@@ -1,13 +1,14 @@
 const mongoose = require('mongoose')
-const autoIncrement = require('mongoose-auto-increment')
+const AutoIncrement = require('mongoose-sequence')
 
 const {Schema} = mongoose
 
 const ShortLinkSchema = new Schema({
+	_id: Number,
 	url: String,
 	base62: String
-})
+}, {_id: false})
 
-ShortLinkSchema.plugin(autoIncrement.plugin, {model: 'ShortLink', field: 'numerical_id'})
+ShortLinkSchema.plugin(AutoIncrement)
 
 module.exports = mongoose.model('ShortLink', ShortLinkSchema)
