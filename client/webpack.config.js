@@ -18,4 +18,4 @@ module.exports = {
 		extensions: ['', '.js', '.jsx', '.styl']
 	},
 	devtool: 'source-map'
-}
+};
