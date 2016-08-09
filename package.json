@@ -25,14 +25,14 @@
     ]
   },
   "dependencies": {
-    "base62": "^1.1.0",
-    "body-parser": "^1.15.2",
-    "corser": "^2.0.0",
-    "express": "^4.14.0",
-    "mongoose": "^4.5.8",
-    "mongoose-sequence": "^3.0.2",
-    "morgan": "^1.6.1",
-    "valid-url": "^1.0.9"
+    "base62": "1.1.0",
+    "body-parser": "1.15.2",
+    "corser": "2.0.0",
+    "express": "4.14.0",
+    "mongoose": "4.5.8",
+    "mongoose-sequence": "3.0.2",
+    "morgan": "1.6.1",
+    "valid-url": "1.0.9"
   },
   "devDependencies": {
     "ava": "^0.16.0",
