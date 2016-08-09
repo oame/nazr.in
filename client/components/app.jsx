@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import ShortLinkForm from './short-link-form'
+import ShortLinkForm from './short-link-form';
 
 export default class App extends React.Component {
 	render() {
@@ -9,13 +9,13 @@ export default class App extends React.Component {
 			{title: '@o_ame', url: 'https://twitter.com/o_ame'},
 			{title: '@kahasina9 (Illustration)', url: 'https://twitter.com/kahasina9'},
 			{title: '上海アリス幻樂団 (原作)', url: 'http://www16.big.or.jp/~zun/}'}
-		]
+		];
 		return (
 			<div>
 				<header>
 					<ul>
 						{links.map((link, index) => {
-							return (<li key={index}><a href={link.url}>{link.title}</a></li>)
+							return (<li key={index}><a href={link.url}>{link.title}</a></li>);
 						})}
 					</ul>
 				</header>
@@ -24,6 +24,6 @@ export default class App extends React.Component {
 					<ShortLinkForm/>
 				</div>
 			</div>
-		)
+		);
 	}
 }

@@ -2,7 +2,7 @@
 /log/*
 !/log/.keep
 /tmp
-/node_modules
+node_modules/
 bundle.js
 *.map
 .nyc_output

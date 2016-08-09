@@ -1,26 +1,26 @@
-import React from 'react'
-import request from 'superagent'
+import React from 'react';
+import request from 'superagent';
 
 export default class ShortLinkForm extends React.Component {
 	constructor(props) {
-		super(props)
+		super(props);
 		this.state = {
 			value: ''
-		}
+		};
 	}
 
 	handleChange = event => {
-		this.setState({value: event.target.value})
+		this.setState({value: event.target.value});
 	}
 
 	handleSubmit = event => {
-		event.preventDefault()
-		const url = this.state.value
+		event.preventDefault();
+		const url = this.state.value;
 		if (!url || url.indexOf('http://nazr.in') > -1) {
-			return
+			return;
 		}
 
-		const endpoint = '/api/short_links'
+		const endpoint = '/api/short_links';
 
 		request
 			.post(endpoint)
@@ -28,11 +28,11 @@ export default class ShortLinkForm extends React.Component {
 			.set('Accept', 'application/json')
 			.end((err, res) => {
 				if (err) {
-					console.error(res.body, res.error)
-					return
+					console.error(res.body, res.error);
+					return;
 				}
-				this.setState({value: res.body.shortURL})
-			})
+				this.setState({value: res.body.shortURL});
+			});
 	}
 
 	render() {
@@ -54,6 +54,6 @@ export default class ShortLinkForm extends React.Component {
 					<i className="material-icons">transform</i>
 				</button>
 			</form>
-		)
+		);
 	}
 }
