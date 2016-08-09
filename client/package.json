@@ -2,6 +2,7 @@
   "name": "nazrin-client",
   "private": true,
   "scripts": {
+    "postinstall": "webpack --progress",
     "test": "xo",
     "start": "webpack -w"
   },

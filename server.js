@@ -8,7 +8,7 @@ const mongoose = require('mongoose')
 // Setup database
 const port = process.env.PORT || 3000
 const databaseURL = process.env.MONGODB_URI || 'mongodb://localhost/nazrin'
-const connection = mongoose.connect(databaseURL)
+mongoose.connect(databaseURL)
 
 const ShortLink = require('./models/short-link')
 const APIRouter = require('./routes/api')
@@ -40,3 +40,5 @@ app.get('/*', (req, res) => {
 app.listen(port, () => {
 	console.log(`http://localhost:${port}`)
 })
+
+module.exports = app

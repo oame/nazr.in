@@ -9,7 +9,7 @@
     "node": "6.2.x"
   },
   "scripts": {
-    "postinstall": "webpack --progress",
+    "postinstall": "npm --prefix client install",
     "start": "node server.js",
     "test": "run-p test:*",
     "test:server": "nyc ava && xo",
@@ -20,10 +20,9 @@
   },
   "xo": {
     "semicolon": false,
-    "envs": [
-      "browser"
-    ],
-    "extends": "xo-react"
+    "ignores": [
+      "client/**"
+    ]
   },
   "dependencies": {
     "base62": "^1.1.0",
@@ -37,10 +36,9 @@
   },
   "devDependencies": {
     "ava": "^0.16.0",
-    "coveralls": "^2.11.12",
-    "mockgoose": "^6.0.6",
     "npm-run-all": "^2.3.0",
     "nyc": "^7.1.0",
+    "supertest": "^2.0.0",
     "xo": "^0.16.0"
   }
 }
