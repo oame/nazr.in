@@ -18,6 +18,13 @@
     "watch:server": "node server.js",
     "watch:client": "npm --prefix client start"
   },
+  "xo": {
+    "semicolon": false,
+    "envs": [
+      "browser"
+    ],
+    "extends": "xo-react"
+  },
   "dependencies": {
     "base62": "^1.1.0",
     "body-parser": "^1.15.2",
@@ -35,12 +42,5 @@
     "npm-run-all": "^2.3.0",
     "nyc": "^7.1.0",
     "xo": "^0.16.0"
-  },
-  "xo": {
-    "semicolon": false,
-    "envs": [
-      "browser"
-    ],
-    "extends": "xo-react"
   }
 }
