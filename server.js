@@ -1,6 +1,5 @@
 const {join} = require('path')
 const express = require('express')
-const subdomain = require('express-subdomain')
 const corser = require('corser')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
@@ -13,8 +12,8 @@ const databaseURL = process.env.MONGODB_URI || 'mongodb://localhost/nazrin'
 const connection = mongoose.connect(databaseURL)
 autoIncrement.initialize(connection)
 
-const ShortLink = require('./app/models/short-link')
-const APIRouter = require('./app/routes/api')
+const ShortLink = require('./models/short-link')
+const APIRouter = require('./routes/api')
 
 // Setup app server
 const app = express()
@@ -26,8 +25,8 @@ app.use(corser.create())
 app.use(express.static(join(__dirname, 'public')))
 
 // API routes
-app.use(subdomain('api', APIRouter))
-// app.use('/api', APIRouter)
+// app.use(subdomain('api', APIRouter))
+app.use('/api', APIRouter)
 
 // Global routes
 app.get('/*', (req, res) => {

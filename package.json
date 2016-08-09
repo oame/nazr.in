@@ -10,17 +10,15 @@
   },
   "scripts": {
     "postinstall": "webpack --progress",
-    "test": "xo",
-    "start": "npm run server",
-    "watch": "run-p -sl server webpack",
-    "server": "node server.js",
-    "webpack": "webpack -w",
-    "build": "webpack",
-    "release": "run-s test build"
+    "start": "node server.js",
+    "test": "nyc ava && xo",
+    "watch": "run-p -sl watch:*",
+    "watch:server": "node server.js",
+    "watch:webpack": "webpack -w"
   },
   "dependencies": {
     "babel-loader": "^6.2.1",
-    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-es2015": "^6.13.2",
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-0": "^6.3.13",
     "base62": "^1.1.0",
@@ -28,14 +26,12 @@
     "corser": "^2.0.0",
     "css-loader": "^0.23.1",
     "express": "^4.14.0",
-    "express-subdomain": "^1.0.5",
     "mongoose": "^4.5.8",
     "mongoose-auto-increment": "^5.0.1",
     "morgan": "^1.6.1",
     "normalize.css": "^4.2.0",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
-    "react-ga": "^2.1.1",
     "style-loader": "^0.13.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.1.2",
@@ -44,16 +40,18 @@
     "webpack": "^1.12.10"
   },
   "devDependencies": {
-    "eslint-config-xo-react": "^0.8.0",
+    "ava": "^0.16.0",
+    "coveralls": "^2.11.12",
+    "eslint-config-xo-react": "^0.9.0",
     "eslint-plugin-react": "^6.0.0",
+    "mockgoose": "^6.0.6",
     "npm-run-all": "^2.3.0",
+    "nyc": "^7.1.0",
     "xo": "^0.16.0"
   },
   "xo": {
-    "esnext": true,
     "semicolon": false,
     "envs": [
-      "node",
       "browser"
     ],
     "extends": "xo-react"

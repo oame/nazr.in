@@ -20,9 +20,10 @@ export default class ShortLinkForm extends React.Component {
 			return
 		}
 
+		const endpoint = '/api/short_links'
+
 		request
-			.post('http://api.nazr.in/short_links')
-			// .post('/api/short_links')
+			.post(endpoint)
 			.send({url})
 			.set('Accept', 'application/json')
 			.end((err, res) => {
@@ -30,9 +31,7 @@ export default class ShortLinkForm extends React.Component {
 					console.error(res.body, res.error)
 					return
 				}
-				console.log(res.body)
-				const shortenedURL = `http://nazr.in/${res.body.base62}`
-				this.setState({value: shortenedURL})
+				this.setState({value: res.body.shortURL})
 			})
 	}
 
