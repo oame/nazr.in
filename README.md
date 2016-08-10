@@ -1,5 +1,7 @@
 # nazr.in
 
+[![Build Status](https://travis-ci.org/oame/nazr.in.svg?branch=master)](https://travis-ci.org/oame/nazr.in) [![Coverage Status](https://coveralls.io/repos/github/oame/nazr.in/badge.svg?branch=master)](https://coveralls.io/github/oame/nazr.in?branch=master)
+
 [nazr.in](http://nazr.in) is an open-source url shortener service.
 
 ## Stack
