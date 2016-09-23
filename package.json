@@ -13,6 +13,7 @@
     "postinstall": "npm --prefix client install",
     "start": "node ./bin/www",
     "test": "run-p test:*",
+    "coverage": "nyc report --reporter=text-lcov",
     "test:server": "nyc ava && xo",
     "test:client": "npm --prefix client test",
     "watch": "run-p watch:*",
