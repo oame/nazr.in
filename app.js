@@ -7,7 +7,6 @@ const morgan = require('morgan')
 const mongoose = require('mongoose')
 
 // Setup database
-const port = process.env.PORT || 3000
 const databaseURL = process.env.MONGODB_URI || 'mongodb://localhost/nazrin'
 mongoose.connect(databaseURL)
 
@@ -40,9 +39,5 @@ app.get('/*', (req, res) => {
 
 // Use the rollbar error handler to send exceptions to your rollbar account
 app.use(rollbar.errorHandler('eb245115be594b33a9a94e6bc4f92e69'))
-
-app.listen(port, () => {
-	console.log(`http://localhost:${port}`)
-})
 
 module.exports = app

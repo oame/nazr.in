@@ -10,12 +10,12 @@
   },
   "scripts": {
     "postinstall": "npm --prefix client install",
-    "start": "node server.js",
+    "start": "node ./bin/www",
     "test": "run-p test:*",
     "test:server": "nyc ava && xo",
     "test:client": "npm --prefix client test",
     "watch": "run-p watch:*",
-    "watch:server": "node server.js",
+    "watch:server": "node ./bin/www",
     "watch:client": "npm --prefix client start"
   },
   "xo": {
