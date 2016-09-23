@@ -1,5 +1,5 @@
 import React from 'react';
-import request from 'superagent';
+import 'whatwg-fetch';
 
 export default class ShortLinkForm extends React.Component {
 	constructor(props) {
@@ -20,18 +20,19 @@ export default class ShortLinkForm extends React.Component {
 			return;
 		}
 
-		const endpoint = '/api/short_links';
-
-		request
-			.post(endpoint)
-			.send({url})
-			.set('Accept', 'application/json')
-			.end((err, res) => {
-				if (err) {
-					console.error(res.body, res.error);
-					return;
-				}
-				this.setState({value: res.body.shortURL});
+		fetch('/api/short_links', {
+			method: 'POST',
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({url})
+		}).then(response => response.json())
+			.then(body => {
+				this.setState({value: body.shortURL});
+			})
+			.catch(err => {
+				console.error(err);
 			});
 	}
 
