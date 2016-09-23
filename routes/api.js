@@ -14,9 +14,8 @@ APIRouter.route('/short_links')
 				})
 			})
 			.catch(err => {
-				res.status(500)
-				res.render('error', {
-					message: 'Cannot create the link',
+				res.status(400)
+				res.json({
 					error: err
 				})
 			})
@@ -30,9 +29,8 @@ APIRouter.route('/short_links/:base62')
 				res.json(shortLink)
 			})
 			.catch(err => {
-				res.status(500)
-				res.render('error', {
-					message: 'Cannot retrieve links',
+				res.status(400)
+				res.json({
 					error: err
 				})
 			})
