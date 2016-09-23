@@ -21,7 +21,7 @@ __nazr.in__ is the endpoint of API services.
 
 Parameters: `{url: String}`
 
-Returns: `{url: String, base62: String}`
+Returns: `{shortURL: String}`
 
 ### GET /api/short_links/:base62
 
