@@ -17,6 +17,7 @@ APIRouter.route('/short_links')
 				res.json({
 					error: err.message
 				})
+				console.error(err)
 			})
 	})
 
@@ -32,6 +33,7 @@ APIRouter.route('/short_links/:base62')
 				res.json({
 					error: err.message
 				})
+				console.error(err)
 			})
 	})
 
