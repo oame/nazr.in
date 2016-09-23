@@ -1,7 +1,7 @@
 import test from 'ava'
 import request from 'supertest'
 
-import app from '../server'
+import app from '..'
 
 test.cb('shorten url and get nazr.in address', t => {
 	request(app)
