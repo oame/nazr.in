@@ -1,6 +1,5 @@
 const {join} = require('path')
 const express = require('express')
-const rollbar = require('rollbar')
 const corser = require('corser')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
@@ -37,7 +36,5 @@ app.get('/*', (req, res) => {
 	})
 })
 
-// Use the rollbar error handler to send exceptions to your rollbar account
-app.use(rollbar.errorHandler('eb245115be594b33a9a94e6bc4f92e69'))
 
 module.exports = app

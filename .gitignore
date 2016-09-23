@@ -6,3 +6,4 @@ node_modules/
 bundle.js
 *.map
 .nyc_output
+.env
