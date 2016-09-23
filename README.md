@@ -4,10 +4,6 @@
 
 [nazr.in](http://nazr.in) is an open-source url shortener service.
 
-## Stack
-
-[MERN](http://mern.io) stack.
-
 ## Build
 
 ```
@@ -19,15 +15,15 @@ $ npm start
 
 > This is ongoing project thus the APIs might be revised. Better check README consistently.
 
-__api.nazr.in__ is the endpoint of API services.
+__nazr.in__ is the endpoint of API services.
 
-### POST /short_links
+### POST /api/short_links
 
 Parameters: `{url: String}`
 
 Returns: `{url: String, base62: String}`
 
-### GET /short_links/:base62
+### GET /api/short_links/:base62
 
 Parameters: `:base62`
 

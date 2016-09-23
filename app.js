@@ -5,14 +5,14 @@ const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const mongoose = require('mongoose')
 
-// Setup database
-const databaseURL = process.env.MONGODB_URI || 'mongodb://localhost/nazrin'
-mongoose.connect(databaseURL)
-
 const ShortLink = require('./models/short-link')
 const APIRouter = require('./routes/api')
 
-// Setup app server
+// Connect to the MongoDB database
+const databaseURL = process.env.MONGODB_URI || 'mongodb://localhost/nazrin'
+mongoose.connect(databaseURL)
+
+// Create express application
 const app = express()
 
 app.use(bodyParser.urlencoded({extended: false}))
@@ -22,7 +22,6 @@ app.use(corser.create())
 app.use(express.static(join(__dirname, 'public')))
 
 // API routes
-// app.use(subdomain('api', APIRouter))
 app.use('/api', APIRouter)
 
 // Global routes
@@ -35,6 +34,5 @@ app.get('/*', (req, res) => {
 		res.redirect(shortLink.url)
 	})
 })
-
 
 module.exports = app
