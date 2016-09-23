@@ -1,5 +1,4 @@
 const {Router} = require('express')
-
 const {shortenURL, getURL} = require('../lib/url-service')
 
 const APIRouter = new Router()
@@ -16,7 +15,7 @@ APIRouter.route('/short_links')
 			.catch(err => {
 				res.status(400)
 				res.json({
-					error: err
+					error: err.message
 				})
 			})
 	})
@@ -31,7 +30,7 @@ APIRouter.route('/short_links/:base62')
 			.catch(err => {
 				res.status(400)
 				res.json({
-					error: err
+					error: err.message
 				})
 			})
 	})
