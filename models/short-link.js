@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
 const AutoIncrement = require('mongoose-sequence')
 
+mongoose.Promise = global.Promise
 const {Schema} = mongoose
-
 const ShortLinkSchema = new Schema({
 	_id: Number,
 	url: String,
