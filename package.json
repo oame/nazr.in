@@ -25,19 +25,20 @@
     ]
   },
   "dependencies": {
-    "base62": "1.1.0",
+    "base62": "^1.1.1",
     "body-parser": "1.15.2",
-    "corser": "2.0.0",
+    "corser": "^2.0.1",
     "express": "4.14.0",
-    "mongoose": "4.5.8",
+    "mongoose": "^4.6.1",
     "mongoose-sequence": "3.0.2",
-    "morgan": "1.6.1",
+    "morgan": "^1.7.0",
+    "rollbar": "^0.6.2",
     "valid-url": "1.0.9"
   },
   "devDependencies": {
     "ava": "^0.16.0",
-    "npm-run-all": "^2.3.0",
-    "nyc": "^7.1.0",
+    "npm-run-all": "^3.1.0",
+    "nyc": "^8.3.0",
     "supertest": "^2.0.0",
     "xo": "^0.16.0"
   }
