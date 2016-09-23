@@ -8,54 +8,41 @@
   "engines": {
     "node": "6.2.x"
   },
+  "main": "app.js",
   "scripts": {
-    "postinstall": "webpack --progress",
-    "test": "xo",
-    "start": "npm run server",
-    "watch": "run-p -sl server webpack",
-    "server": "node server.js",
-    "webpack": "webpack -w",
-    "build": "webpack",
-    "release": "run-s test build"
-  },
-  "dependencies": {
-    "babel-loader": "^6.2.1",
-    "babel-preset-es2015": "^6.3.13",
-    "babel-preset-react": "^6.11.1",
-    "babel-preset-stage-0": "^6.3.13",
-    "base62": "^1.1.0",
-    "body-parser": "^1.15.2",
-    "corser": "^2.0.0",
-    "css-loader": "^0.23.1",
-    "express": "^4.14.0",
-    "express-subdomain": "^1.0.5",
-    "mongoose": "^4.5.8",
-    "mongoose-auto-increment": "^5.0.1",
-    "morgan": "^1.6.1",
-    "normalize.css": "^4.2.0",
-    "react": "^15.3.0",
-    "react-dom": "^15.3.0",
-    "react-ga": "^2.1.1",
-    "style-loader": "^0.13.1",
-    "stylus": "^0.54.5",
-    "stylus-loader": "^2.1.2",
-    "superagent": "^2.1.0",
-    "valid-url": "^1.0.9",
-    "webpack": "^1.12.10"
-  },
-  "devDependencies": {
-    "eslint-config-xo-react": "^0.8.0",
-    "eslint-plugin-react": "^6.0.0",
-    "npm-run-all": "^2.3.0",
-    "xo": "^0.16.0"
+    "postinstall": "npm --prefix client install",
+    "start": "node ./bin/www",
+    "test": "run-p test:*",
+    "test:server": "nyc ava && xo",
+    "test:client": "npm --prefix client test",
+    "watch": "run-p watch:*",
+    "watch:server": "nodemon ./bin/www",
+    "watch:client": "npm --prefix client start"
   },
   "xo": {
-    "esnext": true,
     "semicolon": false,
-    "envs": [
-      "node",
-      "browser"
-    ],
-    "extends": "xo-react"
+    "ignores": [
+      "client/**"
+    ]
+  },
+  "dependencies": {
+    "base62": "^1.1.1",
+    "body-parser": "1.15.2",
+    "corser": "^2.0.1",
+    "express": "4.14.0",
+    "mongoose": "^4.6.1",
+    "mongoose-sequence": "3.0.2",
+    "morgan": "^1.7.0",
+    "rollbar": "^0.6.2",
+    "valid-url": "1.0.9"
+  },
+  "devDependencies": {
+    "ava": "^0.16.0",
+    "dotenv": "^2.0.0",
+    "nodemon": "^1.10.2",
+    "npm-run-all": "^3.1.0",
+    "nyc": "^8.3.0",
+    "supertest": "^2.0.0",
+    "xo": "^0.16.0"
   }
 }

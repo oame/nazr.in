@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+const rollbar = require('rollbar')
+const app = require('..')
+
+if (process.env.NODE_ENV !== 'production') {
+	const dotenv = require('dotenv')
+
+	dotenv.load()
+}
+
+// Use the rollbar error handler to send exceptions to your rollbar account
+app.use(rollbar.errorHandler(process.env.ROLLBAR_ACCESS_TOKEN))
+rollbar.handleUncaughtExceptionsAndRejections(process.env.ROLLBAR_ACCESS_TOKEN)
+
+// Set port
+app.set('port', process.env.PORT || 3000)
+
+const server = app.listen(app.get('port'), () => {
+	console.log('Express server listening on port', server.address().port)
+})

@@ -1,39 +1,39 @@
-import React from 'react'
-import request from 'superagent'
+import React from 'react';
+import 'whatwg-fetch';
 
 export default class ShortLinkForm extends React.Component {
 	constructor(props) {
-		super(props)
+		super(props);
 		this.state = {
 			value: ''
-		}
+		};
 	}
 
 	handleChange = event => {
-		this.setState({value: event.target.value})
+		this.setState({value: event.target.value});
 	}
 
 	handleSubmit = event => {
-		event.preventDefault()
-		const url = this.state.value
+		event.preventDefault();
+		const url = this.state.value;
 		if (!url || url.indexOf('http://nazr.in') > -1) {
-			return
+			return;
 		}
 
-		request
-			.post('http://api.nazr.in/short_links')
-			// .post('/api/short_links')
-			.send({url})
-			.set('Accept', 'application/json')
-			.end((err, res) => {
-				if (err) {
-					console.error(res.body, res.error)
-					return
-				}
-				console.log(res.body)
-				const shortenedURL = `http://nazr.in/${res.body.base62}`
-				this.setState({value: shortenedURL})
+		fetch('/api/short_links', {
+			method: 'POST',
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({url})
+		}).then(response => response.json())
+			.then(body => {
+				this.setState({value: body.shortURL});
 			})
+			.catch(err => {
+				console.error(err);
+			});
 	}
 
 	render() {
@@ -55,6 +55,6 @@ export default class ShortLinkForm extends React.Component {
 					<i className="material-icons">transform</i>
 				</button>
 			</form>
-		)
+		);
 	}
 }

@@ -1,7 +1,7 @@
 module.exports = {
-	entry: './client',
+	entry: '.',
 	output: {
-		filename: './public/bundle.js'
+		filename: '../public/bundle.js'
 	},
 	module: {
 		loaders: [{
@@ -18,4 +18,4 @@ module.exports = {
 		extensions: ['', '.js', '.jsx', '.styl']
 	},
 	devtool: 'source-map'
-}
+};
