@@ -2,20 +2,20 @@
 
 [![Build Status](https://travis-ci.org/oame/nazr.in.svg?branch=master)](https://travis-ci.org/oame/nazr.in) [![Coverage Status](https://coveralls.io/repos/github/oame/nazr.in/badge.svg?branch=master)](https://coveralls.io/github/oame/nazr.in?branch=master)
 
-[nazr.in](http://nazr.in) is an open-source url shortener service.
+[nazr.in](http://nazr.in) is an open source url shortener service built on Express and React.
 
 ## Build
 
 ```
-$ npm install
-$ npm run watch
+npm install
+npm run watch
 ```
 
 ## APIs
 
-> This is ongoing project thus the APIs might be revised. Better check README consistently.
+> This is an ongoing project thus the APIs might be revised. Better check README.
 
-__nazr.in__ is the endpoint of API services.
+__nazr.in__ is the endpoint of the nazr.in APIs.
 
 ### POST /api/short_links
 

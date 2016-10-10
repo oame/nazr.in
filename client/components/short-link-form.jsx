@@ -2,8 +2,8 @@ import React from 'react';
 import 'whatwg-fetch';
 
 export default class ShortLinkForm extends React.Component {
-	constructor(props) {
-		super(props);
+	constructor(...args) {
+		super(...args);
 		this.state = {
 			value: ''
 		};
@@ -20,20 +20,19 @@ export default class ShortLinkForm extends React.Component {
 			return;
 		}
 
-		fetch('/api/short_links', {
+		const options = {
 			method: 'POST',
 			headers: {
 				'Accept': 'application/json',
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify({url})
-		}).then(response => response.json())
-			.then(body => {
-				this.setState({value: body.shortURL});
-			})
-			.catch(err => {
-				console.error(err);
-			});
+		};
+
+		fetch('/api/short_links', options)
+			.then(response => response.json())
+			.then(body => this.setState({value: body.shortURL}))
+			.catch(err => console.error(err));
 	}
 
 	render() {
