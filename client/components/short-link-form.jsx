@@ -31,8 +31,12 @@ export default class ShortLinkForm extends React.Component {
 
 		fetch('/api/short_links', options)
 			.then(response => response.json())
-			.then(body => this.setState({value: body.shortURL}))
-			.catch(err => console.error(err));
+			.then(body => {
+				if (body.error) {
+					return console.log(body.error);
+				}
+				this.setState({value: body.shortURL});
+			});
 	}
 
 	render() {
