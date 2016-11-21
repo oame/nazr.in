@@ -1,5 +1,5 @@
 import React from 'react';
-import 'whatwg-fetch';
+import 'whatwg-fetch'; // eslint-disable-line import/no-unassigned-import
 
 export default class ShortLinkForm extends React.Component {
 	constructor(...args) {
@@ -7,13 +7,16 @@ export default class ShortLinkForm extends React.Component {
 		this.state = {
 			value: ''
 		};
+
+		this.handleChange = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	handleChange = event => {
+	handleChange(event) {
 		this.setState({value: event.target.value});
 	}
 
-	handleSubmit = event => {
+	handleSubmit(event) {
 		event.preventDefault();
 		const url = this.state.value;
 		if (!url || url.indexOf('http://nazr.in') > -1) {
@@ -23,7 +26,7 @@ export default class ShortLinkForm extends React.Component {
 		const options = {
 			method: 'POST',
 			headers: {
-				'Accept': 'application/json',
+				'Accept': 'application/json', // eslint-disable-line quote-props
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify({url})
@@ -46,7 +49,7 @@ export default class ShortLinkForm extends React.Component {
 					<i className="material-icons">web</i>
 					<input
 						className="short-link-form__input"
-						placeholder="http://"
+						placeholder="URL"
 						value={this.state.value}
 						onChange={this.handleChange}
 						/>
