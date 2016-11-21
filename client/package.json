@@ -20,6 +20,7 @@
     "extends": "xo-react"
   },
   "dependencies": {
+    "babel-core": "^6.18.2",
     "babel-loader": "^6.2.5",
     "babel-polyfill": "^6.16.0",
     "babel-preset-es2015": "^6.16.0",
