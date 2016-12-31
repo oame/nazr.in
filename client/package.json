@@ -2,9 +2,9 @@
   "name": "nazrin-client",
   "private": true,
   "scripts": {
-    "postinstall": "webpack --progress",
+    "postinstall": "NODE_ENV=production webpack --progress --optimize-minimize",
     "test": "xo",
-    "start": "webpack -w"
+    "start": "webpack --watch"
   },
   "babel": {
     "presets": [
@@ -13,11 +13,10 @@
       "react"
     ]
   },
-  "xo": {
+  "standard": {
     "envs": [
       "browser"
-    ],
-    "extends": "xo-react"
+    ]
   },
   "dependencies": {
     "babel-core": "^6.18.2",
@@ -38,9 +37,7 @@
     "whatwg-fetch": "^2.0.1"
   },
   "devDependencies": {
-    "eslint-config-xo-react": "^0.10.0",
-    "eslint-plugin-react": "^6.4.0",
     "npm-run-all": "^3.1.0",
-    "xo": "^0.17.1"
+    "standard": "^8.6.0"
   }
 }

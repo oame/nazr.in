@@ -26,13 +26,13 @@ app.use('/api', APIRouter)
 
 // Global routes
 app.get('/*', (req, res) => {
-	ShortLink.findOne({base62: req.params[0]}, (err, shortLink) => {
-		if (err || shortLink === null) {
-			res.redirect('/')
-			return
-		}
-		res.redirect(shortLink.url)
-	})
+  ShortLink.findOne({base62: req.params[0]}, (err, shortLink) => {
+    if (err || shortLink === null) {
+      res.redirect('/')
+      return
+    }
+    res.redirect(shortLink.url)
+  })
 })
 
 module.exports = app

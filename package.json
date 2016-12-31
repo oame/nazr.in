@@ -12,18 +12,17 @@
   "scripts": {
     "postinstall": "npm --prefix client install",
     "start": "node ./bin/www",
-    "test": "run-p test:*",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "test": "run-p test:*",
     "test:server": "nyc ava && xo",
     "test:client": "npm --prefix client test",
     "watch": "run-p watch:*",
     "watch:server": "nodemon ./bin/www",
     "watch:client": "npm --prefix client start"
   },
-  "xo": {
-    "semicolon": false,
-    "ignores": [
-      "client/**"
+  "standard": {
+    "ignore": [
+      "/client/"
     ]
   },
   "dependencies": {
@@ -43,8 +42,8 @@
     "dotenv": "^2.0.0",
     "nodemon": "^1.11.0",
     "npm-run-all": "^3.1.0",
-    "nyc": "^9.0.1",
-    "supertest": "^2.0.0",
-    "xo": "^0.17.1"
+    "nyc": "^10.0.0",
+    "standard": "^8.6.0",
+    "supertest": "^2.0.0"
   }
 }
