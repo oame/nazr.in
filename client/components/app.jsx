@@ -1,9 +1,13 @@
+// @flow
+
 import React from 'react'
 
 import ShortLinkForm from './short-link-form'
 
 export default () => {
-  const links = [
+  type Link = {title: string, url: string}
+
+  const links: Link[] = [
     {title: 'GitHub', url: 'https://github.com/oame/nazr.in'},
     {title: '@o_ame (コード)', url: 'https://twitter.com/o_ame'},
     {title: '@kahasina9 (ロゴ)', url: 'https://twitter.com/kahasina9'},
@@ -14,7 +18,7 @@ export default () => {
     <div>
       <header>
         <ul>
-          {links.map((link, index) => (
+          {links.map((link: Link, index: number) => (
             <li key={index}><a href={link.url}>{link.title}</a></li>
           ))}
         </ul>

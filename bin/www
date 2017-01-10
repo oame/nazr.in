@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+require('babel-register')
 const rollbar = require('rollbar')
 const app = require('..')
 

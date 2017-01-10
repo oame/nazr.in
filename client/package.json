@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "postinstall": "NODE_ENV=production webpack --progress --optimize-minimize",
-    "test": "xo",
+    "test": "standard",
     "start": "webpack --watch"
   },
   "babel": {
@@ -14,6 +14,10 @@
     ]
   },
   "standard": {
+    "parser": "babel-eslint",
+    "plugins": [
+      "flowtype"
+    ],
     "envs": [
       "browser"
     ]
@@ -37,6 +41,8 @@
     "whatwg-fetch": "^2.0.1"
   },
   "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "eslint-plugin-flowtype": "^2.29.2",
     "npm-run-all": "^3.1.0",
     "standard": "^8.6.0"
   }

@@ -3,6 +3,7 @@ const AutoIncrement = require('mongoose-sequence')
 
 mongoose.Promise = global.Promise
 const {Schema} = mongoose
+
 const ShortLinkSchema = new Schema({
   url: String,
   base62: String

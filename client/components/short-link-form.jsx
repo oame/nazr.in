@@ -1,29 +1,32 @@
+// @flow
+
 import React from 'react'
 import 'whatwg-fetch'
 
 export default class ShortLinkForm extends React.Component {
-  constructor (...args) {
+  state: {
+    value: string
+  }
+
+  constructor (...args: any) {
     super(...args)
     this.state = {
       value: ''
     }
-
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleChange (event) {
+  handleChange (event: any) {
     this.setState({value: event.target.value})
   }
 
-  handleSubmit (event) {
+  handleSubmit (event: any) {
     event.preventDefault()
-    const url = this.state.value
+    const url: string = this.state.value
     if (!url || url.indexOf('http://nazr.in') > -1) {
       return
     }
 
-    const options = {
+    const options: Object = {
       method: 'POST',
       headers: {
         'Accept': 'application/json', // eslint-disable-line quote-props
