@@ -15,7 +15,10 @@ if (!DEBUG) {
       }
     }),
     new webpack.optimize.UglifyJsPlugin({ compress: { screw_ie8: true, warnings: false } }),
-    new webpack.optimize.AggressiveMergingPlugin(),
+    new webpack.optimize.AggressiveMergingPlugin()
+  )
+} else {
+  plugins.push(
     new webpack.LoaderOptionsPlugin({
       debug: DEBUG
     })
