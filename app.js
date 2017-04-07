@@ -1,5 +1,3 @@
-// @flow
-
 const {join} = require('path')
 const express = require('express')
 const corser = require('corser')

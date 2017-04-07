@@ -1,5 +1,3 @@
-// @flow
-
 const {Router} = require('express')
 const {shortenURL, getURL} = require('../lib/url-service')
 
