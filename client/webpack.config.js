@@ -1,4 +1,5 @@
 const webpack = require('webpack')
+const path = require('path')
 const DEBUG = process.env.NODE_ENV !== 'production'
 
 console.log(DEBUG ? 'development' : 'production')
@@ -14,7 +15,13 @@ if (!DEBUG) {
         NODE_ENV: JSON.stringify('production')
       }
     }),
-    new webpack.optimize.UglifyJsPlugin({ compress: { screw_ie8: true, warnings: false } }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        screw_ie8: true,
+        warnings: false
+      },
+      sourceMap: true
+    }),
     new webpack.optimize.AggressiveMergingPlugin()
   )
 } else {
@@ -26,21 +33,26 @@ if (!DEBUG) {
 }
 
 module.exports = {
-  devtool: DEBUG ? 'inline-source-map' : 'hidden-source-map',
-  entry: ['babel-polyfill', '.'],
+  devtool: DEBUG ? 'inline-source-map' : 'nosources-source-map',
+  entry: {
+    app: ['babel-polyfill', '.']
+  },
   output: {
-    filename: '../public/bundle.js'
+    path: path.resolve(__dirname, '../public'),
+    filename: '[name].js'
   },
   module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      loader: 'babel-loader',
-      exclude: /node_modules/
-    },
-    {
-      test: /\.styl$/,
-      loader: 'style-loader!css-loader!stylus-loader'
-    }]
+    rules: [
+      {
+        test: /\.jsx?$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.styl$/,
+        loader: 'style-loader!css-loader!stylus-loader'
+      }
+    ]
   },
   resolve: {
     extensions: ['.js', '.jsx', '.styl']

@@ -3,7 +3,7 @@
 !/log/.keep
 /tmp
 node_modules/
-bundle.js
+/public/*.js
 *.map
 .nyc_output
 .env
