@@ -47,14 +47,14 @@ export default class ShortLinkForm extends React.Component {
 
   render () {
     return (
-      <form className='short-link-form' onSubmit={this.handleSubmit}>
+      <form className='short-link-form' onSubmit={this.handleSubmit.bind(this)}>
         <div className='short-link-form__input-container'>
           <i className='material-icons'>web</i>
           <input
             className='short-link-form__input'
             placeholder='URL'
             value={this.state.value}
-            onChange={this.handleChange}
+            onChange={this.handleChange.bind(this)}
             />
         </div>
         <button
