@@ -6,7 +6,7 @@
   "license": "MIT",
   "homepage": "http://nazr.in",
   "engines": {
-    "node": "7.6.x"
+    "node": "7.8.x"
   },
   "main": "app.js",
   "scripts": {
