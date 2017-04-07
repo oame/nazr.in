@@ -10,16 +10,16 @@
   },
   "main": "app.js",
   "scripts": {
-    "postinstall": "npm --prefix client install",
+    "postinstall": "cd client && yarn",
     "start": "node ./bin/www",
     "flow": "flow",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "test": "run-p test:*",
     "test:server": "nyc ava && standard",
-    "test:client": "npm --prefix client test",
+    "test:client": "cd client && yarn test",
     "watch": "run-p watch:*",
     "watch:server": "nodemon ./bin/www",
-    "watch:client": "npm --prefix client start"
+    "watch:client": "cd client && yarn start"
   },
   "babel": {
     "plugins": [
@@ -43,25 +43,25 @@
     "body-parser": "^1.16.1",
     "corser": "^2.0.1",
     "express": "^4.14.1",
-    "mongoose": "^4.6.3",
+    "mongoose": "^4.9.3",
     "mongoose-sequence": "^3.1.0",
     "morgan": "^1.7.0",
     "rollbar": "^0.6.2",
     "validator": "^7.0.0"
   },
   "devDependencies": {
-    "ava": "^0.18.2",
-    "babel-eslint": "^7.1.1",
+    "ava": "^0.19.0",
+    "babel-eslint": "^7.2.1",
     "babel-plugin-transform-flow-strip-types": "^6.21.0",
-    "babel-register": "^6.18.0",
-    "coveralls": "^2.11.14",
+    "babel-register": "^6.24.1",
+    "coveralls": "^2.13.0",
     "dotenv": "^4.0.0",
-    "eslint-plugin-flowtype": "^2.29.2",
-    "flow-bin": "^0.40.0",
+    "eslint-plugin-flowtype": "^2.30.4",
+    "flow-bin": "^0.43.1",
     "nodemon": "^1.11.0",
     "npm-run-all": "^4.0.0",
-    "nyc": "^10.0.0",
-    "standard": "^8.6.0",
+    "nyc": "^10.2.0",
+    "standard": "^10.0.1",
     "supertest": "^3.0.0"
   }
 }
