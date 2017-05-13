@@ -16,7 +16,6 @@
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "test": "run-p test:*",
     "test:server": "nyc ava",
-    "test:client": "cd client && yarn test",
     "watch": "run-p watch:*",
     "watch:server": "nodemon ./bin/www",
     "watch:client": "cd client && yarn start"
