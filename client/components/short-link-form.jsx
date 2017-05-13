@@ -11,7 +11,8 @@ export default class ShortLinkForm extends React.Component {
   constructor(...args: any) {
     super(...args)
     this.state = {
-      value: ''
+      value: '',
+      notification: ''
     }
   }
 
@@ -39,6 +40,7 @@ export default class ShortLinkForm extends React.Component {
       .then(response => response.json())
       .then(body => {
         if (body.error) {
+          this.setState({ notification: body.error })
           return console.log(body.error)
         }
         this.setState({ value: body.shortURL })
@@ -47,20 +49,23 @@ export default class ShortLinkForm extends React.Component {
 
   render() {
     return (
-      <form className="short-link-form" onSubmit={this.handleSubmit.bind(this)}>
-        <div className="short-link-form__input-container">
-          <i className="material-icons">web</i>
-          <input
-            className="short-link-form__input"
-            placeholder="URL"
-            value={this.state.value}
-            onChange={this.handleChange.bind(this)}
-          />
-        </div>
-        <button type="submit" className="short-link-form__submit">
-          <i className="material-icons">transform</i>
-        </button>
-      </form>
+      <div style={{width: '100%'}}>
+        <form className="short-link-form" onSubmit={this.handleSubmit.bind(this)}>
+          <div className="short-link-form__input-container">
+            <i className="material-icons">web</i>
+            <input
+              className="short-link-form__input"
+              placeholder="URL"
+              value={this.state.value}
+              onChange={this.handleChange.bind(this)}
+            />
+          </div>
+          <button type="submit" className="short-link-form__submit">
+            <i className="material-icons">transform</i>
+          </button>
+        </form>
+        <div>{this.state.notification}</div>
+      </div>
     )
   }
 }
