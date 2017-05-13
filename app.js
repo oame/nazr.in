@@ -4,9 +4,12 @@ const corser = require('corser')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const mongoose = require('mongoose')
+const Raven = require('raven')
 
 const ShortLink = require('./models/short-link')
 const APIRouter = require('./routes/api')
+
+Raven.config(process.env.SENTRY_DSN).install()
 
 // Connect to the MongoDB database
 const databaseURL = process.env.MONGODB_URI || 'mongodb://localhost/nazrin'
@@ -15,6 +18,7 @@ mongoose.connect(databaseURL)
 // Create express application
 const app = express()
 
+app.use(Raven.requestHandler())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(morgan('combined'))
@@ -34,5 +38,14 @@ app.get('/*', (req, res) => {
     res.redirect(shortLink.url)
   })
 })
+
+app.use(Raven.errorHandler())
+
+app.use(function onError(err, req, res, next) {
+    // The error id is attached to `res.sentry` to be returned
+    // and optionally displayed to the user for support.
+  res.statusCode = 500;
+  res.end(res.sentry + '\n')
+});
 
 module.exports = app
