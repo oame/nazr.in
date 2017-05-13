@@ -1,4 +1,4 @@
-const {join} = require('path')
+const { join } = require('path')
 const express = require('express')
 const corser = require('corser')
 const bodyParser = require('body-parser')
@@ -15,7 +15,7 @@ mongoose.connect(databaseURL)
 // Create express application
 const app = express()
 
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(morgan('combined'))
 app.use(corser.create())
@@ -26,7 +26,7 @@ app.use('/api', APIRouter)
 
 // Global routes
 app.get('/*', (req, res) => {
-  ShortLink.findOne({base62: req.params[0]}, (err, shortLink) => {
+  ShortLink.findOne({ base62: req.params[0] }, (err, shortLink) => {
     if (err || shortLink === null) {
       res.redirect('/')
       return

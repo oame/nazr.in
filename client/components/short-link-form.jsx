@@ -49,8 +49,11 @@ export default class ShortLinkForm extends React.Component {
 
   render() {
     return (
-      <div style={{width: '100%'}}>
-        <form className="short-link-form" onSubmit={this.handleSubmit.bind(this)}>
+      <div style={{ width: '100%' }}>
+        <form
+          className="short-link-form"
+          onSubmit={this.handleSubmit.bind(this)}
+        >
           <div className="short-link-form__input-container">
             <i className="material-icons">web</i>
             <input

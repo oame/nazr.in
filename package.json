@@ -6,7 +6,7 @@
   "license": "MIT",
   "homepage": "http://nazr.in",
   "engines": {
-    "node": "7.8.x"
+    "node": "7.10.x"
   },
   "main": "app.js",
   "scripts": {
@@ -15,7 +15,7 @@
     "flow": "flow",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "test": "run-p test:*",
-    "test:server": "nyc ava && standard",
+    "test:server": "nyc ava",
     "test:client": "cd client && yarn test",
     "watch": "run-p watch:*",
     "watch:server": "nodemon ./bin/www",
@@ -24,15 +24,6 @@
   "babel": {
     "plugins": [
       "babel-plugin-transform-flow-strip-types"
-    ]
-  },
-  "standard": {
-    "parser": "babel-eslint",
-    "plugins": [
-      "flowtype"
-    ],
-    "ignore": [
-      "/client/"
     ]
   },
   "ava": {
@@ -60,7 +51,6 @@
     "nodemon": "^1.11.0",
     "npm-run-all": "^4.0.0",
     "nyc": "^10.3.2",
-    "standard": "^10.0.2",
     "supertest": "^3.0.0"
   }
 }
