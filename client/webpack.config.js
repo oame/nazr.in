@@ -38,7 +38,7 @@ module.exports = {
     app: ['babel-polyfill', '.']
   },
   output: {
-    path: path.resolve(__dirname, '../public'),
+    path: path.resolve('../public'),
     filename: '[name].js'
   },
   module: {
