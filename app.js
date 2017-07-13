@@ -13,7 +13,9 @@ Raven.config(process.env.SENTRY_DSN).install()
 
 // Connect to the MongoDB database
 const databaseURL = process.env.MONGODB_URI || 'mongodb://localhost/nazrin'
-mongoose.connect(databaseURL)
+mongoose.connect(databaseURL, {
+  useMongoClient: true,
+})
 
 // Create express application
 const app = express()
