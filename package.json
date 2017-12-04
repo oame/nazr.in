@@ -2,7 +2,7 @@
   "name": "nazrin",
   "version": "3.0.0",
   "private": true,
-  "author": "oame <oame@oameya.com> (http://oameya.com/)",
+  "author": "oame <oame@oameya.com> (https://oameya.com)",
   "license": "MIT",
   "homepage": "http://nazr.in",
   "engines": {
@@ -10,7 +10,7 @@
   },
   "main": "app.js",
   "scripts": {
-    "postinstall": "cd client && npm install",
+    "heroku-postbuild": "cd client && npm install",
     "start": "node ./bin/www",
     "flow": "flow",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
@@ -32,25 +32,25 @@
     "base62": "^1.1.1",
     "body-parser": "^1.18.2",
     "corser": "^2.0.1",
-    "express": "^4.15.5",
-    "mongoose": "^4.11.13",
+    "express": "^4.16.2",
+    "mongoose": "^4.13.0",
     "mongoose-sequence": "^3.2.0",
     "morgan": "^1.9.0",
-    "raven": "^2.1.2",
-    "validator": "^8.2.0"
+    "raven": "^2.2.1",
+    "validator": "^9.1.1"
   },
   "devDependencies": {
-    "ava": "^0.22.0",
+    "ava": "^0.23.0",
     "babel-eslint": "^8.0.1",
     "babel-plugin-transform-flow-strip-types": "^6.21.0",
     "babel-register": "^6.26.0",
-    "coveralls": "^2.13.1",
+    "coveralls": "^3.0.0",
     "dotenv": "^4.0.0",
-    "eslint-plugin-flowtype": "^2.36.0",
-    "flow-bin": "^0.55.0",
+    "eslint-plugin-flowtype": "^2.39.1",
+    "flow-bin": "^0.58.0",
     "nodemon": "^1.12.1",
     "npm-run-all": "^4.1.1",
-    "nyc": "^11.2.1",
+    "nyc": "^11.3.0",
     "supertest": "^3.0.0"
   }
 }

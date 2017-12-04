@@ -3,14 +3,10 @@
   "private": true,
   "scripts": {
     "postinstall": "NODE_ENV=production webpack --progress",
-    "start": "webpack --watch"
-  },
-  "babel": {
-    "presets": [
-      "es2015",
-      "stage-3",
-      "react"
-    ]
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "dependencies": {
     "babel-core": "^6.26.0",
@@ -23,8 +19,9 @@
     "normalize.css": "^7.0.0",
     "raven-js": "^3.17.0",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0",
+    "react-dom": "^16.2.0",
     "react-ga": "^2.3.4",
+    "react-scripts": "^1.0.17",
     "style-loader": "^0.18.2",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
@@ -35,5 +32,6 @@
     "babel-eslint": "^8.0.1",
     "eslint-plugin-flowtype": "^2.36.0",
     "npm-run-all": "^4.1.1"
-  }
+  },
+  "proxy": "http://localhost:5000"
 }
