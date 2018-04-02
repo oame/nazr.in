@@ -12,7 +12,6 @@
   "scripts": {
     "heroku-postbuild": "cd client && npm install",
     "start": "node ./bin/www",
-    "flow": "flow",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "test": "run-p test:*",
     "test:server": "nyc ava",
@@ -29,28 +28,25 @@
     "require": "babel-register"
   },
   "dependencies": {
-    "base62": "^1.1.1",
+    "base62": "^1.2.8",
     "body-parser": "^1.18.2",
     "corser": "^2.0.1",
-    "express": "^4.16.2",
-    "mongoose": "^4.13.0",
-    "mongoose-sequence": "^3.2.0",
+    "express": "^4.16.3",
+    "mongoose": "^5.0.12",
+    "mongoose-sequence": "^4.0.1",
     "morgan": "^1.9.0",
-    "raven": "^2.2.1",
-    "validator": "^9.1.1"
+    "raven": "^2.4.2",
+    "validator": "^9.4.1"
   },
   "devDependencies": {
-    "ava": "^0.23.0",
+    "ava": "^0.25.0",
     "babel-eslint": "^8.0.1",
-    "babel-plugin-transform-flow-strip-types": "^6.21.0",
     "babel-register": "^6.26.0",
     "coveralls": "^3.0.0",
-    "dotenv": "^4.0.0",
-    "eslint-plugin-flowtype": "^2.39.1",
-    "flow-bin": "^0.58.0",
-    "nodemon": "^1.12.1",
-    "npm-run-all": "^4.1.1",
-    "nyc": "^11.3.0",
+    "dotenv": "^5.0.1",
+    "nodemon": "^1.17.3",
+    "npm-run-all": "^4.1.2",
+    "nyc": "^11.6.0",
     "supertest": "^3.0.0"
   }
 }

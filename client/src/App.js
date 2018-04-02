@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
-import ShortLinkForm from './ShortLinkForm';
+import React from 'react'
+import ShortLinkForm from './ShortLinkForm'
+
+import Logo from './img/logo_doodle@2x.png'
 
 const links = [
   { title: 'GitHub', url: 'https://github.com/oame/nazr.in' },
@@ -9,9 +11,9 @@ const links = [
     title: 'ZUN / 上海アリス幻樂団 (原作)',
     url: 'http://www16.big.or.jp/~zun/',
   },
-];
+]
 
-class App extends Component {
+class App extends React.PureComponent {
   render() {
     return (
       <div>
@@ -25,10 +27,12 @@ class App extends Component {
           </ul>
         </header>
         <div className="main">
-          <img src="img/logo_doodle@2x.png" className="logo" />
+          <img src={Logo} className="logo" />
           <ShortLinkForm />
         </div>
       </div>
-    );
+    )
   }
 }
+
+export default App

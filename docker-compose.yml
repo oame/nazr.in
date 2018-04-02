@@ -1,0 +1,12 @@
+version: '3'
+services:
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    links:
+      - db
+  db:
+    image: mongo
+    volumes:
+      - ./data:/data/db

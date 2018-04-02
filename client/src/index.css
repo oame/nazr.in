@@ -1,0 +1,81 @@
+@import '~normalize.css/normalize.css';
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+body {
+  font-size: 13px;
+  font-family: sans-serif;
+  background: #fff;
+  color: #5d5d5d;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+a:hover {
+  text-decoration: underline;
+}
+header ul {
+  list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+}
+header ul li {
+  margin: 0 10px;
+}
+.main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.logo {
+  width: 650px;
+  height: auto;
+}
+@media screen and (max-width: 720px) {
+  .logo {
+    width: 80%;
+  }
+}
+.short-link-form {
+  margin: 30px 0;
+  width: 100%;
+  height: 90px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  background-color: #efefef;
+}
+.short-link-form .short-link-form__input-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.short-link-form .short-link-form__input-container .material-icons {
+  margin-left: 25px;
+  font-size: 40px;
+  color: #9c9c9c;
+}
+.short-link-form .short-link-form__input-container .short-link-form__input {
+  flex-grow: 1;
+  border: 0;
+  font-size: 20pt;
+  padding: 0 15px;
+  outline: none;
+  background-color: transparent;
+}
+.short-link-form .short-link-form__submit {
+  border: 0;
+  background-color: #f0b233;
+  padding: 10px 32px;
+  cursor: pointer;
+}
+.short-link-form .short-link-form__submit .material-icons {
+  font-size: 33px;
+  color: #fff;
+}
+.short-link-form .short-link-form__submit:hover {
+  background-color: #73706a;
+}
