@@ -10,14 +10,14 @@
   "dependencies": {
     "normalize.css": "^8.0.0",
     "raven-js": "^3.24.0",
-    "react": "^16.3.0",
-    "react-dom": "^16.3.0",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
     "react-ga": "^2.4.1",
-    "react-scripts": "^1.1.1",
+    "react-scripts": "^1.1.4",
     "whatwg-fetch": "^2.0.4"
   },
   "devDependencies": {
     "npm-run-all": "^4.1.2"
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "http://server:3000"
 }
