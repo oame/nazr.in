@@ -30,6 +30,8 @@ app.use('/api', APIRouter)
 
 // Global routes
 app.get('/*', (req, res, next) => {
+  console.log('route check', req.params)
+
   ShortLink.findOne({ base62: req.params[0] }, (err, shortLink) => {
     if (err || shortLink === null) {
       return res.redirect('/')

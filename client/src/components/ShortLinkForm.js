@@ -4,6 +4,7 @@ import 'whatwg-fetch'
 class ShortLinkForm extends React.Component {
   constructor() {
     super()
+
     this.state = {
       value: '',
       notification: '',
@@ -16,6 +17,7 @@ class ShortLinkForm extends React.Component {
 
   async handleSubmit(event) {
     event.preventDefault()
+
     const url = this.state.value
     if (!url || url.indexOf('http://nazr.in') > -1) {
       return
@@ -24,17 +26,17 @@ class ShortLinkForm extends React.Component {
     const options = {
       method: 'POST',
       headers: {
-        Accept: 'application/json', // eslint-disable-line quote-props
+        Accept: 'application/json',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ url }),
     }
-
     const response = await fetch('/api/short_links', options)
     const body = await response.json()
     if (body.error) {
       this.setState({ notification: body.error })
-      return console.log(body.error)
+      console.log(body.error)
+      return
     }
     this.setState({ value: body.shortURL })
   }
@@ -42,7 +44,9 @@ class ShortLinkForm extends React.Component {
   render() {
     return (
       <div style={{ width: '100%' }}>
-        <form className="short-link-form" onSubmit={this.handleSubmit.bind(this)}>
+        <form
+          className="short-link-form"
+          onSubmit={this.handleSubmit.bind(this)}>
           <div className="short-link-form__input-container">
             <i className="material-icons">web</i>
             <input

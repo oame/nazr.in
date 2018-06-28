@@ -3,11 +3,9 @@
 const app = require('..')
 
 if (process.env.NODE_ENV !== 'production') {
-  const dotenv = require('dotenv')
-  dotenv.load()
+  require('dotenv').load()
 }
 
-// Set port
 app.set('port', process.env.PORT || 3000)
 
 const server = app.listen(app.get('port'), () => {

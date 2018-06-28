@@ -1,7 +1,7 @@
 import React from 'react'
 import ShortLinkForm from './ShortLinkForm'
 
-import Logo from './img/logo_doodle@2x.png'
+import Logo from '../img/logo_doodle@2x.png'
 
 const links = [
   { title: 'GitHub', url: 'https://github.com/oame/nazr.in' },

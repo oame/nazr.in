@@ -4,6 +4,8 @@ services:
     build: .
     links:
       - db
+    volumes:
+      - .:/usr/src/app
   client:
     build: client
     ports:

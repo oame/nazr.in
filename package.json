@@ -10,7 +10,7 @@
   },
   "main": "app.js",
   "scripts": {
-    "heroku-postbuild": "cd client && npm install",
+    "postinstall": "cd client && npm install",
     "start": "node ./bin/www",
     "watch": "run-p watch:*",
     "watch:server": "nodemon ./bin/www",

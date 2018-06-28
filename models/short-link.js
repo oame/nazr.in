@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 const AutoIncrement = require('mongoose-sequence')(mongoose)
-mongoose.Promise = global.Promise
 const { Schema } = mongoose
 
 const ShortLinkSchema = new Schema({
