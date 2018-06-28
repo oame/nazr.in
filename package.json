@@ -1,12 +1,11 @@
 {
   "name": "nazrin",
-  "version": "3.0.0",
   "private": true,
   "author": "o_ame <oame@oameya.com> (https://oameya.com)",
   "license": "MIT",
   "homepage": "http://nazr.in",
   "engines": {
-    "node": "8.1.4"
+    "node": "10.5.0"
   },
   "main": "app.js",
   "scripts": {

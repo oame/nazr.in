@@ -13,7 +13,7 @@ const links = [
   },
 ]
 
-class App extends React.PureComponent {
+export default class App extends React.PureComponent {
   render() {
     return (
       <div>
@@ -34,5 +34,3 @@ class App extends React.PureComponent {
     )
   }
 }
-
-export default App

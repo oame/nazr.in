@@ -1,7 +1,7 @@
 import React from 'react'
 import 'whatwg-fetch'
 
-class ShortLinkForm extends React.Component {
+export default class ShortLinkForm extends React.Component {
   constructor() {
     super()
 
@@ -65,5 +65,3 @@ class ShortLinkForm extends React.Component {
     )
   }
 }
-
-export default ShortLinkForm

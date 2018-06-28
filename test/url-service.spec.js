@@ -4,7 +4,7 @@ import Base62 from 'base62'
 
 import urlService from '../lib/url-service'
 
-const testURL = 'http://oameya.com'
+const testURL = 'https://oameya.com'
 const databaseURL = 'mongodb://localhost/nazrin_test'
 
 mongoose.connect(databaseURL)
