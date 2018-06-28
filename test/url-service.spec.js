@@ -2,20 +2,21 @@ import test from 'ava'
 import mongoose from 'mongoose'
 import Base62 from 'base62'
 
+import urlService from '../lib/url-service'
+
 const testURL = 'http://oameya.com'
 const databaseURL = 'mongodb://localhost/nazrin_test'
+
 mongoose.connect(databaseURL)
 
-const urlService = require('../lib/url-service')
-
 test.serial('shorten url and retrieve its decoded value', async t => {
-  const generatedURL = await urlService.shortenURL(testURL)
-  t.is(generatedURL.url, testURL)
-  t.is(generatedURL.base62, Base62.encode(generatedURL.numerical_id))
+  const res = await urlService.shortenURL(testURL)
+  t.is(res.url, testURL)
+  t.is(res.base62, Base62.encode(res.numerical_id))
 
-  const receivedURL = await urlService.getURL(generatedURL.base62)
+  const receivedURL = await urlService.getURL(res.base62)
   t.is(receivedURL.url, testURL)
-  t.is(receivedURL.numerical_id, generatedURL.numerical_id)
+  t.is(receivedURL.numerical_id, res.numerical_id)
 })
 
 test.serial('incremental id', async t => {

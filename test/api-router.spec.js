@@ -6,7 +6,7 @@ import app from '..'
 test.cb('shorten url and get nazr.in address', t => {
   request(app)
     .post('/api/short_links')
-    .send({ url: 'http://oameya.com' })
+    .send({ url: 'https://oameya.com' })
     .set('Accept', 'application/json')
     .expect('Content-Type', 'application/json; charset=utf-8')
     .end((err, res) => {

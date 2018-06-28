@@ -2,7 +2,7 @@
   "name": "nazrin",
   "version": "3.0.0",
   "private": true,
-  "author": "oame <oame@oameya.com> (https://oameya.com)",
+  "author": "o_ame <oame@oameya.com> (https://oameya.com)",
   "license": "MIT",
   "homepage": "http://nazr.in",
   "engines": {
@@ -12,20 +12,12 @@
   "scripts": {
     "heroku-postbuild": "cd client && npm install",
     "start": "node ./bin/www",
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "test": "run-p test:*",
-    "test:server": "nyc ava",
     "watch": "run-p watch:*",
     "watch:server": "nodemon ./bin/www",
-    "watch:client": "cd client && npm start"
-  },
-  "babel": {
-    "plugins": [
-      "babel-plugin-transform-flow-strip-types"
-    ]
-  },
-  "ava": {
-    "require": "babel-register"
+    "watch:client": "cd client && npm start",
+    "test": "run-p test:*",
+    "test:server": "nyc ava",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "dependencies": {
     "base62": "^2.0.0",
@@ -40,8 +32,6 @@
   },
   "devDependencies": {
     "ava": "^0.25.0",
-    "babel-eslint": "^8.2.2",
-    "babel-register": "^6.26.0",
     "coveralls": "^3.0.0",
     "dotenv": "^6.0.0",
     "nodemon": "^1.17.5",

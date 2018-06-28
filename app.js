@@ -1,4 +1,3 @@
-const { join } = require('path')
 const express = require('express')
 const corser = require('corser')
 const bodyParser = require('body-parser')
@@ -20,17 +19,17 @@ mongoose.connect(databaseURL).catch(err => {
 // Create express application
 const app = express()
 
-app.use(Raven.requestHandler()) // Sentry
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
-app.use(morgan('combined')) // log
+app.use(Raven.requestHandler()) // Sentry logging
+app.use(bodyParser.urlencoded({ extended: false })) // URL encoded text
+app.use(bodyParser.json()) // JSON
 app.use(corser.create()) // CORS
+app.use(morgan('combined')) // Logging
 
 // API routes
 app.use('/api', APIRouter)
 
 // Global routes
-app.get('/*', (req, res) => {
+app.get('/*', (req, res, next) => {
   ShortLink.findOne({ base62: req.params[0] }, (err, shortLink) => {
     if (err || shortLink === null) {
       return res.redirect('/')
