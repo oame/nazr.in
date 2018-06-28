@@ -8,13 +8,13 @@ APIRouter.route('/short_links').post((req, res) => {
   shortenURL(req.body.url)
     .then(shortLink => {
       res.json({
-        shortURL: `http://nazr.in/${shortLink.base62}`
+        shortURL: `http://nazr.in/${shortLink.base62}`,
       })
     })
     .catch(err => {
       res.status(400)
       res.json({
-        error: err.message
+        error: err.message,
       })
       console.error(err)
     })
@@ -29,7 +29,7 @@ APIRouter.route('/short_links/:base62').get((req, res) => {
     .catch(err => {
       res.status(400)
       res.json({
-        error: err.message
+        error: err.message,
       })
       console.error(err)
     })

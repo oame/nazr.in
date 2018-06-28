@@ -1,56 +1,41 @@
 {
   "name": "nazrin",
-  "version": "3.0.0",
   "private": true,
-  "author": "oame <oame@oameya.com> (http://oameya.com/)",
+  "author": "o_ame <oame@oameya.com> (https://oameya.com)",
   "license": "MIT",
   "homepage": "http://nazr.in",
   "engines": {
-    "node": "8.1.4"
+    "node": "10.5.0"
   },
   "main": "app.js",
   "scripts": {
     "postinstall": "cd client && npm install",
     "start": "node ./bin/www",
-    "flow": "flow",
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "test": "run-p test:*",
-    "test:server": "nyc ava",
     "watch": "run-p watch:*",
     "watch:server": "nodemon ./bin/www",
-    "watch:client": "cd client && npm start"
-  },
-  "babel": {
-    "plugins": [
-      "babel-plugin-transform-flow-strip-types"
-    ]
-  },
-  "ava": {
-    "require": "babel-register"
+    "watch:client": "cd client && npm start",
+    "test": "run-p test:*",
+    "test:server": "nyc ava",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "dependencies": {
-    "base62": "^1.1.1",
+    "base62": "^2.0.0",
     "body-parser": "^1.18.2",
     "corser": "^2.0.1",
-    "express": "^4.15.5",
-    "mongoose": "^4.11.13",
-    "mongoose-sequence": "^3.2.0",
+    "express": "^4.16.3",
+    "mongoose": "^5.0.12",
+    "mongoose-sequence": "^4.0.1",
     "morgan": "^1.9.0",
-    "raven": "^2.1.2",
-    "validator": "^8.2.0"
+    "raven": "^2.4.2",
+    "validator": "^10.4.0"
   },
   "devDependencies": {
-    "ava": "^0.22.0",
-    "babel-eslint": "^8.0.1",
-    "babel-plugin-transform-flow-strip-types": "^6.21.0",
-    "babel-register": "^6.26.0",
-    "coveralls": "^2.13.1",
-    "dotenv": "^4.0.0",
-    "eslint-plugin-flowtype": "^2.36.0",
-    "flow-bin": "^0.55.0",
-    "nodemon": "^1.12.1",
-    "npm-run-all": "^4.1.1",
-    "nyc": "^11.2.1",
+    "ava": "^0.25.0",
+    "coveralls": "^3.0.0",
+    "dotenv": "^6.0.0",
+    "nodemon": "^1.17.5",
+    "npm-run-all": "^4.1.2",
+    "nyc": "^12.0.2",
     "supertest": "^3.0.0"
   }
 }

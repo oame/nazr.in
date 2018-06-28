@@ -15,7 +15,7 @@ npm run watch
 
 > This is an ongoing project thus the APIs might be revised. Better check README.
 
-__nazr.in__ is the endpoint of the nazr.in APIs.
+**nazr.in** is the endpoint of the nazr.in APIs.
 
 ### POST /api/short_links
 

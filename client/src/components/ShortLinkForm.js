@@ -1,50 +1,44 @@
-// @flow
-
 import React from 'react'
 import 'whatwg-fetch'
 
 export default class ShortLinkForm extends React.Component {
-  state: {
-    value: string
-  }
+  constructor() {
+    super()
 
-  constructor(...args: any) {
-    super(...args)
     this.state = {
       value: '',
-      notification: ''
+      notification: '',
     }
   }
 
-  handleChange(event: any) {
+  handleChange(event) {
     this.setState({ value: event.target.value })
   }
 
-  handleSubmit(event: any) {
+  async handleSubmit(event) {
     event.preventDefault()
-    const url: string = this.state.value
+
+    const url = this.state.value
     if (!url || url.indexOf('http://nazr.in') > -1) {
       return
     }
 
-    const options: Object = {
+    const options = {
       method: 'POST',
       headers: {
-        Accept: 'application/json', // eslint-disable-line quote-props
-        'Content-Type': 'application/json'
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ url })
+      body: JSON.stringify({ url }),
     }
-
-    fetch('/api/short_links', options)
-      .then(response => response.json())
-      .then(body => {
-        if (body.error) {
-          this.setState({ notification: body.error })
-          return console.log(body.error)
-        }
-        this.setState({ value: body.shortURL })
-      })
+    const response = await fetch('/api/short_links', options)
+    const body = await response.json()
+    if (body.error) {
+      this.setState({ notification: body.error })
+      console.log(body.error)
+      return
+    }
+    this.setState({ value: body.shortURL })
   }
 
   render() {
@@ -52,8 +46,7 @@ export default class ShortLinkForm extends React.Component {
       <div style={{ width: '100%' }}>
         <form
           className="short-link-form"
-          onSubmit={this.handleSubmit.bind(this)}
-        >
+          onSubmit={this.handleSubmit.bind(this)}>
           <div className="short-link-form__input-container">
             <i className="material-icons">web</i>
             <input
