@@ -27,7 +27,7 @@ class App extends React.PureComponent {
           </ul>
         </header>
         <div className="main">
-          <img src={Logo} className="logo" />
+          <img src={Logo} alt="nazrin logo" className="logo" />
           <ShortLinkForm />
         </div>
       </div>
