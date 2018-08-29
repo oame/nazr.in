@@ -14,7 +14,7 @@
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-ga": "^2.4.1",
-    "react-scripts": "^1.1.4",
+    "react-scripts": "^1.1.5",
     "whatwg-fetch": "^2.0.4"
   },
   "proxy": "http://server:3000"
