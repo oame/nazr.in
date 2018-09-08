@@ -1,20 +1,18 @@
 version: '3'
 services:
   server:
+    image: nazrin
     build: .
     links:
       - db
-    volumes:
-      - .:/usr/src/app
-  client:
-    build: client
+    restart: always
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      WAIT_HOSTS: db:27017
     ports:
       - 3000:3000
-    links:
-      - server
   db:
     image: mongo
-    ports:
-      - 27017:27017
     volumes:
       - ./data:/data/db

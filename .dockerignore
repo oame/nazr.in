@@ -1,4 +1,3 @@
 node_modules
-data
-client
+/data
 .env
