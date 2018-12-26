@@ -13,9 +13,14 @@ Raven.config(process.env.SENTRY_DSN).install()
 
 // Connect to the MongoDB database
 const databaseURL = process.env.MONGODB_URI || 'mongodb://db/nazrin'
-mongoose.connect(databaseURL).catch(err => {
-  console.error(err)
-})
+mongoose
+  .connect(
+    databaseURL,
+    { useNewUrlParser: true }
+  )
+  .catch(err => {
+    console.error(err)
+  })
 
 // Create an Express app
 const app = express()
@@ -29,31 +34,30 @@ app.use(morgan('combined')) // Logging
 app.use('/api', APIRouter)
 
 // Find link and redirect if exists
-app.get('/:base62', (req, res, next) => {
-  ShortLink.findOne({ base62: req.params.base62 })
-    .exec()
-    .then(shortLink => {
-      console.log('link found', shortLink)
-      if (shortLink) {
-        res.redirect(shortLink.url)
-      } else {
-        res.redirect('/')
-      }
-    })
-    .catch(err => {
-      next(err)
-    })
+app.get('/:base62', async (req, res, next) => {
+  try {
+    const shortLink = await ShortLink.findOne({ base62: req.params.base62 })
+
+    if (shortLink) {
+      res.redirect(shortLink.url)
+    } else {
+      res.redirect('/')
+    }
+  } catch (err) {
+    next(err)
+  }
 })
 
 // Route to React client app
-app.use(express.static(path.join(__dirname + '/client/build')))
+app.use(express.static(path.join(__dirname + '/../client/build')))
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/client/build/index.html'))
+  res.sendFile(path.join(__dirname + '/../client/build/index.html'))
 })
 
 // Sentry error reporting
 app.use(Raven.errorHandler())
 app.use(function onError(err, req, res, next) {
+  console.log(err)
   // The error id is attached to `res.sentry` to be returned
   // and optionally displayed to the user for support.
   res.statusCode = 500

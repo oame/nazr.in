@@ -7,15 +7,13 @@
 ## Build
 
 ```
-npm install
-npm run watch
+yarn
+yarn run watch
 ```
 
 ## APIs
 
-> This is an ongoing project thus the APIs might be revised. Better check README.
-
-**nazr.in** is the endpoint of the nazr.in APIs.
+**https://nazr.in** is the endpoint for the nazr.in APIs.
 
 ### POST /api/short_links
 

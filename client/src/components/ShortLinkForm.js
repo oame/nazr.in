@@ -1,22 +1,26 @@
 import React from 'react'
-import 'whatwg-fetch'
+import fetch from 'isomorphic-unfetch'
 
 export default class ShortLinkForm extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {
       value: '',
       notification: '',
+      isFetching: false,
     }
   }
 
   handleChange(event) {
-    this.setState({ value: event.target.value })
+    const { value } = event.target
+    this.setState({ value })
   }
 
   async handleSubmit(event) {
     event.preventDefault()
+
+    this.setState({ isFetching: true })
 
     const url = this.state.value
     if (!url || url.indexOf('//nazr.in') > -1) {
@@ -33,11 +37,15 @@ export default class ShortLinkForm extends React.Component {
     }
     const response = await fetch('/api/short_links', options)
     const body = await response.json()
+
+    this.setState({ isFetching: false })
+
     if (body.error) {
       this.setState({ notification: body.error })
       console.log(body.error)
       return
     }
+
     this.setState({ value: body.shortURL })
   }
 

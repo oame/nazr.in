@@ -12,7 +12,10 @@ services:
       WAIT_HOSTS: db:27017
     ports:
       - 3000:3000
+    volumes:
+      - ./api:/usr/src/app/api
+      - ./client:/usr/src/app/client
   db:
     image: mongo
     volumes:
-      - ./data:/data/db
+      - ./tmp/db:/data/db

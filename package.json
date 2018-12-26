@@ -1,41 +1,7 @@
 {
   "name": "nazrin",
-  "private": true,
-  "author": "o_ame <oame@oameya.com> (https://oameya.com)",
-  "license": "MIT",
-  "homepage": "https://nazr.in",
-  "engines": {
-    "node": "11.5.0"
-  },
-  "main": "app.js",
   "scripts": {
-    "postinstall": "cd client && npm install",
-    "start": "node ./bin/www",
-    "watch": "run-p watch:*",
-    "watch:server": "nodemon ./bin/www",
-    "watch:client": "cd client && npm start",
-    "test": "run-p test:*",
-    "test:server": "nyc ava",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
-  },
-  "dependencies": {
-    "base62": "^2.0.0",
-    "body-parser": "^1.18.2",
-    "corser": "^2.0.1",
-    "express": "^4.16.3",
-    "mongoose": "^5.0.12",
-    "mongoose-sequence": "^4.0.1",
-    "morgan": "^1.9.0",
-    "raven": "^2.4.2",
-    "validator": "^10.4.0"
-  },
-  "devDependencies": {
-    "ava": "^0.25.0",
-    "coveralls": "^3.0.0",
-    "dotenv": "^6.0.0",
-    "nodemon": "^1.17.5",
-    "npm-run-all": "^4.1.2",
-    "nyc": "^12.0.2",
-    "supertest": "^3.0.0"
+    "postinstall": "yarn --cwd api && yarn --cwd client",
+    "start": "yarn --cwd api start"
   }
 }
