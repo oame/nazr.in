@@ -9,7 +9,7 @@ const links = [
   { title: '@kahasina9 (ロゴ)', url: 'https://twitter.com/kahasina9' },
   {
     title: 'ZUN / 上海アリス幻樂団 (原作)',
-    url: 'http://www16.big.or.jp/~zun/',
+    url: 'https://www16.big.or.jp/~zun/',
   },
 ]
 

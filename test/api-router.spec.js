@@ -14,7 +14,7 @@ test.cb('shorten url and get nazr.in address', t => {
         throw err
       }
       console.log(res.body)
-      t.true(res.body.shortURL.indexOf('http://nazr.in') > -1)
+      t.true(res.body.shortURL.indexOf('https://nazr.in') > -1)
       t.end()
     })
 })

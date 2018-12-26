@@ -8,7 +8,7 @@ APIRouter.route('/short_links').post((req, res) => {
   shortenURL(req.body.url)
     .then(shortLink => {
       res.json({
-        shortURL: `http://nazr.in/${shortLink.base62}`,
+        shortURL: `https://nazr.in/${shortLink.base62}`,
       })
     })
     .catch(err => {
