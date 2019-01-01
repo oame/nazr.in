@@ -4,9 +4,6 @@
   "author": "o_ame <oame@oameya.com> (https://oameya.com)",
   "license": "MIT",
   "homepage": "https://nazr.in",
-  "engines": {
-    "node": "11.5.0"
-  },
   "main": "app.js",
   "scripts": {
     "start": "node ./bin/www",
