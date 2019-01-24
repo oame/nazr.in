@@ -1,11 +1,11 @@
-const Base62 = require('base62')
-const validator = require('validator')
+import { encode as base64Encode } from 'base62'
+import { isURL } from 'validator'
 
-const ShortLink = require('../models/short-link')
+import ShortLink, { findOne } from '../models/short-link'
 
-function shortenURL(url) {
+export function shortenURL(url) {
   return new Promise((resolve, reject) => {
-    if (!validator.isURL(url)) {
+    if (!isURL(url)) {
       return reject(new Error('Invalid URL provided'))
     }
 
@@ -19,7 +19,7 @@ function shortenURL(url) {
       .save()
       .then(shortLink => {
         shortLink.url = url
-        shortLink.base62 = Base62.encode(shortLink.numerical_id)
+        shortLink.base62 = base64Encode(shortLink.numerical_id)
         return shortLink.save()
       })
       .then(shortLink => {
@@ -28,9 +28,9 @@ function shortenURL(url) {
   })
 }
 
-function getURL(id) {
+export function getURL(id) {
   return new Promise((resolve, reject) => {
-    ShortLink.findOne({ base62: id }).then(shortLink => {
+    findOne({ base62: id }).then(shortLink => {
       if (shortLink === null) {
         return reject(new Error('Requested link is missing'))
       }
@@ -41,9 +41,4 @@ function getURL(id) {
       })
     })
   })
-}
-
-module.exports = {
-  shortenURL,
-  getURL,
 }

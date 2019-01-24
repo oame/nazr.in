@@ -1,15 +1,15 @@
-const path = require('path')
-const express = require('express')
-const corser = require('corser')
-const bodyParser = require('body-parser')
-const morgan = require('morgan')
-const mongoose = require('mongoose')
-const Raven = require('raven')
+import { join } from 'path'
+import express from 'express'
+import corser from 'corser'
+import bodyParser from 'body-parser'
+import morgan from 'morgan'
+import mongoose from 'mongoose'
+import raven from 'raven'
 
-const APIRouter = require('./routes/api')
-const ShortLink = require('./models/short-link')
+import APIRouter from './routes/api'
+import ShortLink from './models/short-link'
 
-Raven.config(process.env.SENTRY_DSN).install()
+raven.config(process.env.SENTRY_DSN).install()
 
 // Connect to the MongoDB database
 const databaseURL = process.env.MONGODB_URI || 'mongodb://db/nazrin'
@@ -24,7 +24,7 @@ mongoose
 
 // Create an Express app
 const app = express()
-app.use(Raven.requestHandler()) // Sentry middleware
+app.use(raven.requestHandler()) // Sentry middleware
 app.use(bodyParser.urlencoded({ extended: false })) // URL encoded queries
 app.use(bodyParser.json()) // JSON
 app.use(corser.create()) // CORS
@@ -49,13 +49,13 @@ app.get('/:base62', async (req, res, next) => {
 })
 
 // Route to React client app
-app.use(express.static(path.join(__dirname + '/../client/build')))
+app.use(express.static(join(__dirname + '/../client/build')))
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/../client/build/index.html'))
+  res.sendFile(join(__dirname + '/../client/build/index.html'))
 })
 
 // Sentry error reporting
-app.use(Raven.errorHandler())
+app.use(raven.errorHandler())
 app.use(function onError(err, req, res, next) {
   console.log(err)
   // The error id is attached to `res.sentry` to be returned
@@ -64,4 +64,4 @@ app.use(function onError(err, req, res, next) {
   res.end(res.sentry + '\n')
 })
 
-module.exports = app
+export default app

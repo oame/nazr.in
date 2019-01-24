@@ -1,5 +1,5 @@
-const { Router } = require('express')
-const { shortenURL, getURL } = require('../lib/url-service')
+import { Router } from 'express'
+import { shortenURL, getURL } from '../services/url-service'
 
 const APIRouter = new Router()
 
@@ -35,4 +35,4 @@ APIRouter.route('/short_links/:base62').get((req, res) => {
     })
 })
 
-module.exports = APIRouter
+export default APIRouter
