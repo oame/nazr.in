@@ -1,8 +1,9 @@
 {
   "name": "nazrin-client",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
-    "postinstall": "npm run build",
+    "postinstall": "yarn build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
@@ -15,7 +16,7 @@
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-ga": "^2.4.1",
-    "react-scripts": "^1.1.5"
+    "react-scripts": "^2.1.3"
   },
   "proxy": "http://server:3000"
 }
