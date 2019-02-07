@@ -2,7 +2,7 @@ import test from 'ava'
 import mongoose from 'mongoose'
 import Base62 from 'base62'
 
-import urlService from '../lib/url-service'
+import urlService from '../src/services/url-service'
 
 const testURL = 'https://oameya.com'
 const databaseURL = 'mongodb://localhost/nazrin_test'
