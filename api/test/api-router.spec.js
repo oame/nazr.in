@@ -3,7 +3,7 @@ import request from 'supertest'
 
 import app from '..'
 
-test.cb('shorten url and get nazr.in address', t => {
+test.cb('shorten url and get nazr.in address', (t) => {
   request(app)
     .post('/api/short_links')
     .send({ url: 'https://oameya.com' })

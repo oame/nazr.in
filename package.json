@@ -1,9 +1,24 @@
 {
   "name": "nazrin",
+  "description": "nazr.in",
   "version": "0.0.0",
+  "author": "o_ame <oame@oameya.com> (https://oameya.com)",
   "scripts": {
     "postinstall": "yarn --cwd api && yarn --cwd client",
     "start": "yarn --cwd api start",
-    "test": "yarn --cwd api test"
+    "test": "yarn --cwd api test && yarn --cwd client test"
+  },
+  "bugs": {
+    "url": "https://github.com/oame/nazrin/issues"
+  },
+  "homepage": "https://github.com/oame/nazrin",
+  "keywords": [
+    "nazr.in"
+  ],
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oame/nazrin.git"
   }
 }

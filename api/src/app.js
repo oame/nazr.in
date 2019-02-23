@@ -12,15 +12,10 @@ import ShortLink from './models/short-link'
 raven.config(process.env.SENTRY_DSN).install()
 
 // Connect to the MongoDB database
-const databaseURL = process.env.MONGODB_URI || 'mongodb://db/nazrin'
-mongoose
-  .connect(
-    databaseURL,
-    { useNewUrlParser: true }
-  )
-  .catch(err => {
-    console.error(err)
-  })
+const databaseURL = process.env.MONGODB_URI || 'mongodb://localhost/nazrin'
+mongoose.connect(databaseURL, { useNewUrlParser: true }).catch((err) => {
+  console.error(err)
+})
 
 // Create an Express app
 const app = express()

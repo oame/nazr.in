@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom'
 import ReactGA from 'react-ga'
 import Raven from 'raven-js'
 
-import './index.css'
-
 import App from './components/App'
+import './index.css'
 
 ReactGA.initialize('UA-28919359-3')
 Raven.config(
