@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const app = require('..').deafult
+const app = require('..').default
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').load()

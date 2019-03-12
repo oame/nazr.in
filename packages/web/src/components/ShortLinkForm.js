@@ -19,7 +19,6 @@ export default class ShortLinkForm extends React.Component {
 
   async handleSubmit(event) {
     event.preventDefault()
-
     this.setState({ isFetching: true })
 
     const url = this.state.value
@@ -27,15 +26,14 @@ export default class ShortLinkForm extends React.Component {
       return
     }
 
-    const options = {
+    const response = await fetch('/api/short_links', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ url }),
-    }
-    const response = await fetch('/api/short_links', options)
+    })
     const body = await response.json()
 
     this.setState({ isFetching: false })

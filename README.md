@@ -8,7 +8,7 @@
 
 ```
 yarn
-yarn run watch
+yarn workspaces
 ```
 
 ## APIs

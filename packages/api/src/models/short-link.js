@@ -1,5 +1,6 @@
 import mongoose, { model, Schema } from 'mongoose'
 import MongooseSequence from 'mongoose-sequence'
+
 const AutoIncrement = MongooseSequence(mongoose)
 
 const ShortLinkSchema = new Schema({

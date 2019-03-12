@@ -5,7 +5,7 @@ services:
 env:
   - MONGODB_URI=mongodb://localhost/nazrin
 after_success:
-  - yarn --cwd api run coverage
+  - yarn workspaces test:coverage
 notifications:
   email:
     on_success: never
