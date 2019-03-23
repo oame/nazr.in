@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "main": "./build/app.js",
   "scripts": {
-    "build": "tsc",
+    "build": "shx rm -rf build && tsc",
     "dev": "npm-run-all build --parallel dev:*",
     "dev:server": "PORT=5000 nodemon ./bin/server",
     "dev:tsc": "tsc -w",
@@ -31,5 +31,6 @@
     "supertest": "^4.0.0",
     "ts-node": "^8.0.2",
     "typescript": "^3.3.3333"
-  }
+  },
+  "license": "MIT"
 }
