@@ -4,12 +4,25 @@
   "version": "0.0.0",
   "author": "o_ame <oame@oameya.com> (https://oameya.com)",
   "scripts": {
+    "build": "yarn workspaces run build",
     "dev": "npm-run-all --parallel dev:*",
     "dev:api": "yarn workspace nazrin-api run dev",
     "dev:web": "yarn workspace nazrin-web run dev",
-    "build": "yarn workspaces run build",
     "start": "yarn workspaces run start",
     "test": "yarn workspaces run test"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "cross-env": "^5.2.0",
+    "dotenv": "^7.0.0",
+    "husky": "^1.3.1",
+    "nodemon": "^1.18.10",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.16.4",
+    "shx": "^0.3.2",
+    "ts-node": "^8.0.3",
+    "tslint": "^5.14.0",
+    "typescript": "^3.3.4000"
   },
   "bugs": {
     "url": "https://github.com/oame/nazrin/issues"
@@ -25,17 +38,5 @@
     "packages": [
       "packages/*"
     ]
-  },
-  "devDependencies": {
-    "concurrently": "^4.1.0",
-    "cross-env": "^5.2.0",
-    "dotenv": "^6.2.0",
-    "husky": "^1.3.1",
-    "nodemon": "^1.18.10",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^1.16.4",
-    "shx": "^0.3.2",
-    "tslint": "^5.13.1",
-    "typescript": "^3.3.3333"
   }
 }
