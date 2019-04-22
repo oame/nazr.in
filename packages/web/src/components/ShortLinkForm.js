@@ -1,27 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
+import styled from 'styled-components'
 import fetch from 'isomorphic-unfetch'
 
-export default class ShortLinkForm extends React.Component {
-  constructor(props) {
-    super(props)
+export default function ShortLinkForm() {
+  const [url, setURL] = useState('')
+  const [notification, setNotification] = useState('')
+  const [isFetch, setIsFetch] = useState(false)
 
-    this.state = {
-      value: '',
-      notification: '',
-      isFetching: false,
-    }
-  }
-
-  handleChange(event) {
-    const { value } = event.target
-    this.setState({ value })
-  }
-
-  async handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault()
-    this.setState({ isFetching: true })
+    setIsFetch(true)
 
-    const url = this.state.value
     if (!url || url.indexOf('//nazr.in') > -1) {
       return
     }
@@ -34,40 +23,90 @@ export default class ShortLinkForm extends React.Component {
       },
       body: JSON.stringify({ url }),
     })
-    const body = await response.json()
+    const { error, shortURL } = await response.json()
 
-    this.setState({ isFetching: false })
+    setIsFetch(false)
 
-    if (body.error) {
-      this.setState({ notification: body.error })
-      console.log(body.error)
-      return
+    if (error) {
+      setNotification(error)
+      return error
     }
 
-    this.setState({ value: body.shortURL })
+    setURL(shortURL)
   }
 
-  render() {
-    return (
-      <div style={{ width: '100%' }}>
-        <form
-          className="short-link-form"
-          onSubmit={this.handleSubmit.bind(this)}>
-          <div className="short-link-form__input-container">
-            <i className="material-icons">web</i>
-            <input
-              className="short-link-form__input"
-              placeholder="URL"
-              value={this.state.value}
-              onChange={this.handleChange.bind(this)}
-            />
-          </div>
-          <button type="submit" className="short-link-form__submit">
-            <i className="material-icons">transform</i>
-          </button>
-        </form>
-        <div>{this.state.notification}</div>
-      </div>
-    )
-  }
+  return (
+    <Container>
+      <Form onSubmit={handleSubmit}>
+        <InputContainer>
+          <InputIcon>web</InputIcon>
+          <Input
+            placeholder="URL"
+            value={url}
+            onChange={(event) => setURL(event.target.value)}
+          />
+        </InputContainer>
+        <SubmitButton>
+          <SubmitIcon>transform</SubmitIcon>
+        </SubmitButton>
+      </Form>
+      <Notification>{notification}</Notification>
+    </Container>
+  )
 }
+
+const Icon = styled.i.attrs({
+  className: 'material-icons',
+})``
+
+const InputIcon = styled(Icon)`
+  margin-left: 25px;
+  font-size: 40px;
+  color: #9c9c9c;
+`
+
+const SubmitIcon = styled(Icon)`
+  font-size: 33px;
+  color: #fff;
+`
+
+const Container = styled.div`
+  width: 100%;
+`
+const Form = styled.form`
+  margin: 30px 0;
+  width: 100%;
+  height: 90px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  background-color: #efefef;
+`
+
+const InputContainer = styled.div`
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const Input = styled.input`
+  flex-grow: 1;
+  border: 0;
+  font-size: 20pt;
+  padding: 0 15px;
+  outline: none;
+  background-color: transparent;
+`
+
+const SubmitButton = styled.button.attrs({ type: 'submit' })`
+  border: 0;
+  background-color: #f0b233;
+  padding: 10px 32px;
+  cursor: pointer;
+  &:hover {
+    background-color: #73706a;
+  }
+`
+
+const Notification = styled.div``
