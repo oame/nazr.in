@@ -18,16 +18,16 @@
     "body-parser": "^1.18.2",
     "corser": "^2.0.1",
     "express": "^4.16.3",
-    "mongoose": "^5.4.19",
+    "mongoose": "^5.5.2",
     "mongoose-sequence": "^5.0.1",
     "morgan": "^1.9.0",
     "raven": "^2.4.2",
     "validator": "^10.11.0"
   },
   "devDependencies": {
-    "ava": "^1.2.1",
+    "ava": "^1.4.1",
     "coveralls": "^3.0.3",
-    "nyc": "^13.3.0",
+    "nyc": "^14.0.0",
     "supertest": "^4.0.2"
   },
   "license": "MIT"
