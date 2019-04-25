@@ -3,7 +3,7 @@
 const app = require('..').default
 
 if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').load()
+  require('dotenv').config()
 }
 
 app.set('port', process.env.PORT || 3000)

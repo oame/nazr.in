@@ -16,7 +16,7 @@ export default function App() {
   ]
 
   return (
-    <React.Fragment>
+    <>
       <GlobalStyle />
       <header>
         <LinkList>
@@ -31,38 +31,34 @@ export default function App() {
         <Logo />
         <ShortLinkForm />
       </Main>
-    </React.Fragment>
+    </>
   )
 }
 
 const GlobalStyle = createGlobalStyle`
-@import '~normalize.css/normalize.css';
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
+html {
+}
+
 body {
-  font-size: 13px;
-  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   background: #fff;
   color: #5d5d5d;
+  font-family: sans-serif;
+  font-size: 0.4em;
 }
+
 a {
   text-decoration: none;
   color: #000;
 }
+
 a:hover {
   text-decoration: underline;
 }
-`
-
-const LinkList = styled.ul`
-  list-style: none;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-end;
-`
-
-const Item = styled.li`
-  margin: 0 10px;
 `
 
 const Main = styled.div`
@@ -76,7 +72,19 @@ const Main = styled.div`
 const Logo = styled.img.attrs({ src: LogoImage, alt: 'nazrin logo' })`
   width: 650px;
   height: auto;
-  @media screen and (max-width: 720px) {
+  @media screen and (max-width: 800px) {
     width: 80%;
   }
+`
+
+const LinkList = styled.ul`
+  list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  align-items: baseline;
+`
+
+const Item = styled.li`
+  margin: 0 10px;
 `
