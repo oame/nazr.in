@@ -11,23 +11,35 @@
     "test": "react-scripts test --env=jsdom"
   },
   "dependencies": {
+    "http-proxy-middleware": "^1.0.4",
     "isomorphic-unfetch": "^3.0.0",
-    "next": "^8.1.0",
+    "next": "^9.4.4",
     "normalize.css": "^8.0.0",
     "prop-types": "^15.7.2",
-    "raven-js": "^3.24.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-ga": "^2.5.7",
-    "react-scripts": "^3.0.0",
-    "styled-components": "^4.2.0"
+    "raven-js": "^3.27.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-ga": "^2.7.0",
+    "react-scripts": "^3.4.1",
+    "styled-components": "^5.1.1"
   },
+  "devDependencies": {
+    "concurrently": "^5.2.0",
+    "cross-env": "^7.0.2",
+    "dotenv": "^8.2.0",
+    "husky": "^4.2.5",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.0.5",
+    "ts-node": "^8.10.2",
+    "tslint": "^6.1.2",
+    "typescript": "^3.9.3"
+  },
+  "license": "MIT",
   "browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
   ],
-  "license": "MIT",
   "proxy": "http://localhost:5000"
 }

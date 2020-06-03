@@ -1,0 +1,7 @@
+// See https://aka.ms/vscode-remote/devcontainer.json for format details.
+{
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "server",
+	"workspaceFolder": "/",
+	"extensions": []
+}

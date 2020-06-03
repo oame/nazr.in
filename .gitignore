@@ -1,6 +1,4 @@
 tmp/
-/packages/web/build/
-/packages/api/build/
 
 # Created by https://www.gitignore.io/api/node
 # Edit at https://www.gitignore.io/?templates=node

@@ -12,28 +12,25 @@
     "test": "yarn workspaces run test"
   },
   "devDependencies": {
-    "concurrently": "^4.1.0",
-    "cross-env": "^5.2.0",
-    "dotenv": "^7.0.0",
-    "husky": "^2.1.0",
-    "nodemon": "^1.18.11",
+    "concurrently": "^5.2.0",
+    "cross-env": "^7.0.2",
+    "husky": "^4.2.5",
+    "lerna": "^3.22.0",
+    "nodemon": "^2.0.4",
     "npm-run-all": "^4.1.5",
-    "prettier": "^1.17.0",
-    "shx": "^0.3.2",
-    "ts-node": "^8.1.0",
-    "tslint": "^5.16.0",
-    "typescript": "^3.4.5"
+    "prettier": "^2.0.5",
+    "shx": "^0.3.2"
   },
-  "bugs": {
-    "url": "https://github.com/oame/nazrin/issues"
-  },
-  "homepage": "https://github.com/oame/nazrin",
-  "license": "MIT",
-  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/oame/nazrin.git"
   },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/oame/nazrin/issues"
+  },
+  "homepage": "https://github.com/oame/nazrin",
+  "private": true,
   "workspaces": {
     "packages": [
       "packages/*"
