@@ -1,8 +1,12 @@
 import {encode as base64Encode} from 'base62';
 import fetch from 'node-fetch';
 import {isURL} from 'validator';
+import assert from 'assert';
 
 import ShortLink from '../models/short-link';
+
+const SAFE_BROWSING_API_KEY = process.env.SAFE_BROWSING_API_KEY;
+assert(SAFE_BROWSING_API_KEY);
 
 /**
  * @param {string} url
@@ -17,7 +21,7 @@ export async function checkURL(url) {
   }
 
   const safeCheck = await fetch(
-    'https://safebrowsing.googleapis.com/v4/threatMatches:find?key=AIzaSyAqZK1yLaPred5F7egaSIrFcVZF5KyxWQo',
+    `https://safebrowsing.googleapis.com/v4/threatMatches:find?key=${SAFE_BROWSING_API_KEY}`,
     {
       method: 'POST',
       headers: {'Content-Type': 'application/json; charset=utf-8'},
